@@ -1,0 +1,10 @@
+:root {
+  --theme-black: rgb(25, 25, 25);
+  --theme-yellow: rgba(245, 158, 11, 1.0);
+
+
+  --theme-color: var(--theme-black);
+
+  --scrollbar-size: 4px;
+  --scrollbar-color: var(--theme-color);
+}

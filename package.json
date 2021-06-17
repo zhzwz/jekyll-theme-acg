@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "update": "bundle install && bundle update",
+    "serve": "bundle exec jekyll serve -o"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.2.6",
+    "postcss": "^8.3.4",
+    "tailwindcss": "^2.1.4"
+  }
+}

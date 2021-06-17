@@ -1,0 +1,44 @@
+lang: zh-CN
+title: Jekyll Theme ACG
+description: An awesome theme for Jekyll.
+
+author: Coder Zhao
+email: coderzhaoziwei@outlook.com
+github_id: coderzhaoziwei
+
+show_excerpt: true
+
+# ========== ========== ========== ========== ==========
+
+source: "source"
+destination: ".bundle"
+
+data_dir: "_data"         # /source/_data
+layouts_dir: "_layouts"   # /source/_layouts
+includes_dir: "_includes" # /source/_includes
+plugins_dir: ["_plugins"] # /source/_plugins
+
+sass:
+  sass_dir: _sass
+  style: compressed
+
+collections_dir: "" # /source
+collections:
+  posts:
+    output: true
+
+defaults:
+- scope:
+    path: "" # all files in the project
+  values:
+    layout: default
+- scope:
+    path: ""
+    type: posts
+  values:
+    layout: post
+
+plugins:
+- jekyll-gist
+- jekyll-feed
+- jekyll-seo-tag
