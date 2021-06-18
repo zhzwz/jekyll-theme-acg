@@ -1,0 +1,21 @@
+{
+  "editor.fontSize": 12,
+  "editor.tabSize": 2,
+  "editor.wordWrap": "on",
+  "files.associations": {
+    ".html": "liquid",
+    ".scss": "liquid",
+  },
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 60000,
+  "files.eol": "\n",
+  "files.exclude": {
+    "**/.git": true,
+    "**/node_modules": true
+  },
+  "files.insertFinalNewline": true,
+  "editor.minimap.renderCharacters": false,
+  "editor.minimap.showSlider": "always",
+}
