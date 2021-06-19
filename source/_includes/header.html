@@ -1,0 +1,13 @@
+{% assign color = site.themeColor %}
+
+{%- comment -%}{%- endcomment -%}
+<header class="w-full fixed z-50 select-none bg-{{ color }}-600 bg-opacity-50 bg-blur">
+  <nav class="p-4 font-serif text-xl text-{{ color }}-50 flex space-x-4">
+    <a class="hover:text-{{ color }}-400 text-2xl" href="{{ site.url | default: "/" | relative_url }}">{{ site.title }}</a>
+    <span class="flex-grow"></span>
+    <a class="hover:text-{{ color }}-400" href="/tags">Tags</a>
+    <a class="hover:text-{{ color }}-400" href="/archives">Archives</a>
+    <a class="hover:text-{{ color }}-400" href="/about">About</a>
+  </nav>
+</header>
+{%- comment -%}{%- endcomment -%}
