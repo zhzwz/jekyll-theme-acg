@@ -46,6 +46,19 @@
     ::-webkit-scrollbar-thumb:horizontal {
       width: 4px;
     }
+    .markdown-body a {
+      color: var(--{{ color }}-600);
+      font-weight: 500;
+    }
+    .markdown-body h1, .markdown-body h2 {
+      border-bottom-color: var(--{{ color }}-600);
+    }
+    .markdown-body hr {
+      background-color: var(--{{ color }}-600);
+    }
+    .markdown-body blockquote {
+      border-left-color: var(--{{ color }}-600);
+    }
   </style>
 </head>
 {%- comment -%}{%- endcomment -%}
