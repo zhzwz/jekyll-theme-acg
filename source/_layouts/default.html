@@ -1,6 +1,8 @@
 {% capture lang %}{{ page.lang | default: site.lang | default: "en-US" }}{% endcapture %}
+{%- comment -%}{%- endcomment -%}
 <!DOCTYPE html>
 <html lang="{{ lang }}" class="min-h-screen bg-image bg-cover bg-center bg-fixed">
 {% include head.html %}
 {% include body.html %}
 </html>
+{%- comment -%}{%- endcomment -%}
