@@ -1,7 +1,7 @@
 {% capture color %}{{ page.color | default: site.themeColor }}{% endcapture %}
 
 {%- comment -%}{%- endcomment -%}
-<header class="w-full fixed z-50 select-none bg-{{ color }}-600 bg-opacity-50 bg-blur">
+<header class="w-full fixed z-50 select-none bg-{{ color }}-600 bg-opacity-10 bg-blur">
   <nav class="p-4 font-serif text-xl text-{{ color }}-50 flex space-x-4">
     <a class="hover:text-{{ color }}-400 text-2xl" href="{{ site.url | default: "/" | relative_url }}">{{ site.title }}</a>
     <span class="flex-grow"></span>
