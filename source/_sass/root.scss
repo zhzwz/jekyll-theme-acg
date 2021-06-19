@@ -1,10 +1,27 @@
 :root {
-  --theme-black: rgb(25, 25, 25);
-  --theme-yellow: rgba(245, 158, 11, 1.0);
-
-
-  --theme-color: var(--theme-black);
-
-  --scrollbar-size: 4px;
-  --scrollbar-color: var(--theme-color);
+  --opacity: 1;
+  --red-200: rgba(254, 200, 200, var(--opacity));
+  --red-400: rgba(248, 114, 114, var(--opacity));
+  --red-600: rgba(220, 40, 40, var(--opacity));
+  --red-800: rgba(153, 27, 27, var(--opacity));
+  --blue-200: rgba(191, 219, 254, var(--opacity));
+  --blue-400: rgba(96, 165, 250, var(--opacity));
+  --blue-600: rgba(37, 99, 235, var(--opacity));
+  --blue-800: rgba(30, 64, 175, var(--opacity));
+  --pink-200: rgba(251, 207, 232, var(--opacity));
+  --pink-400: rgba(244, 114, 182, var(--opacity));
+  --pink-600: rgba(219, 39, 119, var(--opacity));
+  --pink-800: rgba(157, 23, 77, var(--opacity));
+  --green-200: rgba(167, 243, 208, var(--opacity));
+  --green-400: rgba(52, 211, 153, var(--opacity));
+  --green-600: rgba(5, 150, 105, var(--opacity));
+  --green-800: rgba(6, 95, 70, var(--opacity));
+  --yellow-200: rgba(253, 230, 138, var(--opacity));
+  --yellow-400: rgba(251, 191, 36, var(--opacity));
+  --yellow-600: rgba(217, 119, 6, var(--opacity));
+  --yellow-800: rgba(146, 64, 14, var(--opacity));
+  --purple-200: rgba(221, 214, 254, var(--opacity));
+  --purple-400: rgba(167, 139, 250, var(--opacity));
+  --purple-600: rgba(124, 58, 237, var(--opacity));
+  --purple-800: rgba(91, 33, 182, var(--opacity));
 }
