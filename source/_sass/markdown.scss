@@ -1,0 +1,35 @@
+.markdown-body a:hover {
+  text-decoration: underline;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.markdown-body ol {
+  list-style-type: decimal;
+}
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+.markdown-body ol ol ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ul ul ol {
+  list-style-type: lower-alpha;
+}
+.markdown-body ul {
+  list-style-type: disc;
+}
+.markdown-body ul ul,
+.markdown-body ol ul {
+  list-style-type: circle;
+}
+.markdown-body ul ul ul,
+.markdown-body ol ul ul,
+.markdown-body ul ol ul,
+.markdown-body ol ol ul {
+  list-style-type: square;
+}
