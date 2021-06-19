@@ -1,46 +1,54 @@
-{% capture JEKYLL_TOC_WORKSPACE %}
-  {% assign min = include.min | default: 2 %}
-  {% assign max = include.max | default: 3 %}
-  {% assign nodes = include.html | strip | split: '<h' %}
-  {% for node in nodes %}
-    {% if node == '' or node contains 'omit-in-toc' %}{% continue %}{% endif %}
-    {% assign level = node | slice: 0, 1 | to_integer %}
-    {% if level < min or max < level %}{% continue %}{% endif %}
-    {% assign title = node | split: '</h'| first | split: 'id="' | shift | join: '' | split: '"' | first %}
-    {% if title == '' or title == nil %}{% continue %}{% endif %}
-    {% if output == nil %}
-      {% assign min = level %}
-      {% assign id = include.id | default: 'toc' %}
-      {% assign class = include.class | default: 'toc' %}
-      {% capture output %}<!-- jekyll-toc --><{% if include.ordered %}ol{% else %}ul{% endif %}{% endcapture %}
-      {% capture output %}{{ output }} id="{{ id }}" class="{{ class }}">{% endcapture %}
-    {% elsif lastLevel < level %}
-      {% assign sub = include.sub | default: 'toc-sub-%level%' %}
-      {% assign subLevel = level | minus: 1 %}
-      {% capture output %}{{ output }}<{% if include.ordered %}ol{% else %}ul{% endif %}{% endcapture %}
-      {% capture output %}{{ output }} class="{{ sub | replace: '%level%', subLevel }}">{% endcapture %}
-    {% elsif level < lastLevel %}
-      {% assign count = lastLevel | minus: level %}
-      {% for i in (1..count) %}
-        {% capture output %}{{ output }}</li>{% if include.ordered %}</ol>{% else %}</ul>{% endif %}{% endcapture %}
-      {% endfor %}
-      {% capture output %}{{ output }}</li>{% endcapture %}
-    {% else %}
-      {% capture output %}{{ output }}</li>{% endcapture %}
-    {% endif %}
-    {% capture a_body_temp %}{{ node | split: '</h' | first }}{% endcapture %}
-    {% capture a_body_prev %}{{ a_body_temp | split: '>' | first }}>{% endcapture %}
-    {% capture a_body %}{{ a_body_temp | replace: a_body_prev, '' }}{% endcapture %}
-    {% capture a_class %}{{ include.a | default: 'toc-a' }}{% endcapture %}
-    {% capture a_href %}{{ include.base | default: '' }}#{{ title }}{% endcapture %}
-    {% capture a %}<a class="{{ a_class }}" href="{{ a_href }}">{{ a_body | strip_html }}</a>{% endcapture %}
-    {% capture liClass %}{{ include.li | default: 'toc-li-%level%' | replace: '%level%', level }}{% endcapture %}
-    {% capture output %}{{ output }}<li class="{{ tocItemClass }}">{{ a }}{% endcapture %}
-    {% assign lastLevel = level %}
-  {% endfor %}
-  {% assign count = lastLevel | minus: min | plus: 1 %}
-  {% for index in (1..count) %}
-    {% capture output %}{{ output }}</li>{% if include.ordered %}</ol>{% else %}</ul>{% endif %}{% endcapture %}
-  {% endfor %}
-  {% capture output %}{{ output }}<!-- jekyll-toc-end -->{% endcapture %}
-{% endcapture %}{{ output }}
+{% assign min = include.min | default: 2 %}
+{% assign max = include.max | default: 3 %}
+{% assign nodes = include.html | strip | split: '<h' %}
+
+{% for node in nodes %}
+  {% if node == '' or node contains 'omit-in-toc' %}{% continue %}{% endif %}
+
+  {% assign level = node | slice: 0, 1 | to_integer %}
+  {% if level < min or max < level %}{% continue %}{% endif %}
+
+  {% assign title = node | split: '</h'| first | split: 'id="' | shift | join: '' | split: '"' | first %}
+  {% if title == '' or title == nil %}{% continue %}{% endif %}
+
+  {% if output == nil %}
+    {% assign min = level %}
+    {% assign id = include.id | default: 'toc' %}
+    {% assign class = include.class | default: 'toc' %}
+    {% capture output %}<{% if include.ordered %}ol{% else %}ul{% endif %}{% endcapture %}
+    {% capture output %}{{ output }} id="{{ id }}" class="{{ class }}">{% endcapture %}
+  {% elsif lastLevel < level %}
+    {% assign sub = include.sub | default: 'toc-sub-%level%' %}
+    {% assign subLevel = level | minus: 1 %}
+    {% capture output %}{{ output }}<{% if include.ordered %}ol{% else %}ul{% endif %}{% endcapture %}
+    {% capture output %}{{ output }} class="{{ sub | replace: '%level%', subLevel }}">{% endcapture %}
+  {% elsif level < lastLevel %}
+    {% assign count = lastLevel | minus: level %}
+    {% for i in (1..count) %}
+      {% capture output %}{{ output }}</li>{% if include.ordered %}</ol>{% else %}</ul>{% endif %}{% endcapture %}
+    {% endfor %}
+    {% capture output %}{{ output }}</li>{% endcapture %}
+  {% else %}
+    {% capture output %}{{ output }}</li>{% endcapture %}
+  {% endif %}
+
+  {% capture a_body_temp %}{{ node | split: '</h' | first }}{% endcapture %}
+  {% capture a_body_prev %}{{ a_body_temp | split: '>' | first }}>{% endcapture %}
+  {% capture a_body %}{{ a_body_temp | replace: a_body_prev, '' }}{% endcapture %}
+  {% capture a_class %}{{ include.a | default: 'toc-a' }}{% endcapture %}
+  {% capture a_href %}{{ include.base | default: '' }}#{{ title }}{% endcapture %}
+  {% capture a %}<a class="{{ a_class }}" href="{{ a_href }}">{{ a_body | strip_html }}</a>{% endcapture %}
+  {% capture liClass %}{{ include.li | default: 'toc-li-%level%' | replace: '%level%', level }}{% endcapture %}
+  {% capture output %}{{ output }}<li class="{{ liClass }}">{{ a }}{% endcapture %}
+
+  {% assign lastLevel = level %}
+{% endfor %}
+
+{% assign count = lastLevel | minus: min | plus: 1 %}
+{% for index in (1..count) %}
+  {% capture output %}{{ output }}</li>{% if include.ordered %}</ol>{% else %}</ul>{% endif %}{% endcapture %}
+{% endfor %}
+
+{%- comment -%}{%- endcomment -%}
+{{ output }}
+{%- comment -%}{%- endcomment -%}
