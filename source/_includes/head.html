@@ -1,3 +1,6 @@
+{% capture color %}{{ page.color | default: site.themeColor }}{% endcapture %}
+
+{%- comment -%}{%- endcomment -%}
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,5 +20,32 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.0.1/styles/vs2015.css">
   <!-- CSS -->
   <link rel="stylesheet" href="{{ "assets/css/style.css" | relative_url }}">
-
+  <!-- Scroll Bar CSS -->
+  <style>
+    ::-webkit-scrollbar {
+      width: 4px;
+      height: 4px;
+    }
+    ::-webkit-scrollbar-track-piece {
+      background: var(--{{ color }}-200);
+    }
+    ::-webkit-scrollbar-thumb {
+      border-radius: 4px;
+      background-color: var(--{{ color }}-600);
+      background-image: repeating-linear-gradient(
+        -45deg,
+        var(--{{ color }}-600) 0,
+        var(--{{ color }}-600) 32px,
+        var(--{{ color }}-400) 32px,
+        var(--{{ color }}-400) 36px
+      );
+    }
+    ::-webkit-scrollbar-thumb:vertical {
+      height: 4px;
+    }
+    ::-webkit-scrollbar-thumb:horizontal {
+      width: 4px;
+    }
+  </style>
 </head>
+{%- comment -%}{%- endcomment -%}

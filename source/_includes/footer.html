@@ -1,4 +1,4 @@
-{% assign color = site.themeColor %}
+{% capture color %}{{ page.color | default: site.themeColor }}{% endcapture %}
 
 {%- comment -%}{%- endcomment -%}
 <footer class="w-full p-2 text-sm text-{{ color }}-100 bg-{{ color }}-600 bg-opacity-25 bg-blur">

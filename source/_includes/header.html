@@ -1,4 +1,4 @@
-{% assign color = site.themeColor %}
+{% capture color %}{{ page.color | default: site.themeColor }}{% endcapture %}
 
 {%- comment -%}{%- endcomment -%}
 <header class="w-full fixed z-50 select-none bg-{{ color }}-600 bg-opacity-50 bg-blur">
