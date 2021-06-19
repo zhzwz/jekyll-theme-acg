@@ -6,7 +6,12 @@ author: Coder Zhao
 email: coderzhaoziwei@outlook.com
 github_id: coderzhaoziwei
 
+theme: jekyll-theme-acg
+themeColor: red
+
 show_excerpt: true
+paginate: 10
+paginate_path: /page:num
 
 # ========== ========== ========== ========== ==========
 
@@ -42,3 +47,4 @@ plugins:
 - jekyll-gist
 - jekyll-feed
 - jekyll-seo-tag
+- jekyll-paginate
