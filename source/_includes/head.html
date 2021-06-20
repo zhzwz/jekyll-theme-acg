@@ -1,4 +1,4 @@
-{% capture color %}{{ page.color | default: site.themeColor }}{% endcapture %}
+{% capture color %}{{ page.color | default: site.color }}{% endcapture %}
 
 {%- comment -%}{%- endcomment -%}
 <head>
@@ -21,44 +21,6 @@
   <!-- CSS -->
   <link rel="stylesheet" href="{{ "assets/css/style.css" | relative_url }}">
   <!-- Scroll Bar CSS -->
-  <style>
-    ::-webkit-scrollbar {
-      width: 4px;
-      height: 4px;
-    }
-    ::-webkit-scrollbar-track-piece {
-      background: var(--{{ color }}-200);
-    }
-    ::-webkit-scrollbar-thumb {
-      border-radius: 4px;
-      background-color: var(--{{ color }}-600);
-      background-image: repeating-linear-gradient(
-        -45deg,
-        var(--{{ color }}-600) 0,
-        var(--{{ color }}-600) 32px,
-        var(--{{ color }}-400) 32px,
-        var(--{{ color }}-400) 36px
-      );
-    }
-    ::-webkit-scrollbar-thumb:vertical {
-      height: 4px;
-    }
-    ::-webkit-scrollbar-thumb:horizontal {
-      width: 4px;
-    }
-    .markdown-body a {
-      color: var(--{{ color }}-600);
-      font-weight: 500;
-    }
-    .markdown-body h1, .markdown-body h2 {
-      border-bottom-color: var(--{{ color }}-600);
-    }
-    .markdown-body hr {
-      background-color: var(--{{ color }}-600);
-    }
-    .markdown-body blockquote {
-      border-left-color: var(--{{ color }}-600);
-    }
-  </style>
+  {% include style.html %}
 </head>
 {%- comment -%}{%- endcomment -%}
