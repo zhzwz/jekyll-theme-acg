@@ -1,4 +1,5 @@
 {
+  "version": "1.0.1",
   "scripts": {
     "update": "bundle install && bundle update",
     "serve": "bundle exec jekyll serve -o"
