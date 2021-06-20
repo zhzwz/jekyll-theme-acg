@@ -1,10 +1,10 @@
-{% capture color %}{{ page.color | default: site.themeColor }}{% endcapture %}
+{% capture color %}{{ page.color | default: site.color }}{% endcapture %}
 {%- comment -%}{%- endcomment -%}
 <main class="w-full flex-grow">
   <figure class="w-full h-screen flex flex-col justify-center items-center select-none">
     <figcaption class="w-full h-full flex flex-col items-center justify-center text-{{ color }}-50">
-      <span class="block font-serif text-4xl">{{ page.title | default: site.title }}</span>
-      <span class="block font-sans text-xl w-2/3 text-center mt-2">{{ page.description | default: site.description }}</span>
+      <span class="block font-serif text-4xl w-3/4 text-center py-4">{{ page.title | default: site.title }}</span>
+      <span class="block font-sans text-base w-2/3 text-center">{{ page.description | default: site.description }}</span>
     </figcaption>
   </figure>
 {{ content }}
