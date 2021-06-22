@@ -5,9 +5,9 @@
   <nav class="p-4 font-serif text-xl text-{{ color }}-50 flex justify-between">
     <a class="hover:text-{{ color }}-400 text-2xl" href="{{ site.url | default: "/" | relative_url }}">{{ site.title }}</a>
     <div class="hidden md:block space-x-4">
-      <a class="hover:text-{{ color }}-400" href="/tags">Tags</a>
-      <a class="hover:text-{{ color }}-400" href="/archives">Archives</a>
-      <a class="hover:text-{{ color }}-400" href="/about">About</a>
+      <a class="hover:text-{{ color }}-400" href="{{ "/tags" | relative_url }}">Tags</a>
+      <a class="hover:text-{{ color }}-400" href="{{ "/archives" | relative_url }}">Archives</a>
+      <a class="hover:text-{{ color }}-400" href="{{ "/about" | relative_url }}">About</a>
     </div>
     <div class="md:hidden">
       <style>#theme-menu:focus + #theme-menu-dropdown { display: block; }</style>
@@ -20,9 +20,9 @@
         </svg>
       </button>
       <div class="hidden origin-top-right absolute right-1 mt-1 rounded-md py-1 bg-{{ color }}-100 focus:block focus:outline-none" id="theme-menu-dropdown">
-        <a class="block px-4 py-2 text-sm text-{{ color }}-600 hover:text-{{ color }}-400" href="/tags">Tags</a>
-        <a class="block px-4 py-2 text-sm text-{{ color }}-600 hover:text-{{ color }}-400" href="/archives">Archives</a>
-        <a class="block px-4 py-2 text-sm text-{{ color }}-600 hover:text-{{ color }}-400" href="/about">About</a>
+        <a class="block px-4 py-2 text-sm text-{{ color }}-600 hover:text-{{ color }}-400" href="{{ "/tags" | relative_url }}">Tags</a>
+        <a class="block px-4 py-2 text-sm text-{{ color }}-600 hover:text-{{ color }}-400" href="{{ "/archives" | relative_url }}">Archives</a>
+        <a class="block px-4 py-2 text-sm text-{{ color }}-600 hover:text-{{ color }}-400" href="{{ "/about" | relative_url }}">About</a>
       </div>
     </div>
 
