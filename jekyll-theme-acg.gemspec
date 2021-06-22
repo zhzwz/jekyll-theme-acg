@@ -1,10 +1,11 @@
 Gem::Specification.new do |spec|
   spec.name     = "jekyll-theme-acg"
-  spec.version  = "1.0.2"
+  spec.version  = "1.0.4"
   spec.authors  = ["Coder Zhao"]
   spec.email    = "coderzhaoziwei@outlook.com"
 
   spec.summary  = "An awesome theme for Jekyll."
+  spec.description = "This a theme for Jekyll, which still under development."
   spec.homepage = "https://github.com/coderzhaoziwei/jekyll-theme-acg"
   spec.license  = "MIT"
 

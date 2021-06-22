@@ -1,9 +1,9 @@
 {
-  "version": "1.0.2",
+  "version": "1.0.4",
   "scripts": {
     "bundle:update": "bundle install && bundle update",
     "bundle:serve": "bundle exec jekyll serve -o",
-    "gem:build": "gem build jekyll-theme-acg.gemspec",
+    "gem:build": "rm jekyll-theme-acg-*.gem & gem build jekyll-theme-acg.gemspec",
     "gem:push": "gem push jekyll-theme-acg-*.gem"
   },
   "devDependencies": {

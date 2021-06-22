@@ -8,7 +8,7 @@ github_id: coderzhaoziwei
 
 # Theme Name
 theme: jekyll-theme-acg
-background: 
+background: https://cdn.jsdelivr.net/gh/coderzhaoziwei/jekyll-theme-acg/assets/images/bg.png
 
 # Theme Color
 # Default: red

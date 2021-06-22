@@ -4,7 +4,7 @@
 @import "markdown";
 
 .bg-image {
-  background-image: url("{{ site.themeBackground | default: '/assets/images/bg.png' }}");
+  background-image: url("{{ page.background | default: site.background }}");
 }
 
 .bg-blur {
