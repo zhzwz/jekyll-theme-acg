@@ -1,8 +1,10 @@
 {
-  "version": "1.0.1",
+  "version": "1.0.2",
   "scripts": {
-    "update": "bundle install && bundle update",
-    "serve": "bundle exec jekyll serve -o"
+    "bundle:update": "bundle install && bundle update",
+    "bundle:serve": "bundle exec jekyll serve -o",
+    "gem:build": "gem build jekyll-theme-acg.gemspec",
+    "gem:push": "gem push jekyll-theme-acg-*.gem"
   },
   "devDependencies": {
     "autoprefixer": "^10.2.6",

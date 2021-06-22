@@ -8,6 +8,7 @@ github_id: coderzhaoziwei
 
 # Theme Name
 theme: jekyll-theme-acg
+background: 
 
 # Theme Color
 # Default: red
@@ -21,7 +22,7 @@ baseurl:
 # Default: /assets/images/bg.png
 # Author: saino
 # Origin: https://www.pixiv.net/artworks/86925095
-themeBackground:
+
 
 
 
@@ -31,19 +32,21 @@ paginate_path: /page:num
 
 # ========== ========== ========== ========== ==========
 
-source: "source"
-destination: ".bundle"
 
-data_dir: "_data"         # /source/_data
-layouts_dir: "_layouts"   # /source/_layouts
-includes_dir: "_includes" # /source/_includes
-plugins_dir: ["_plugins"] # /source/_plugins
+exclude: [
+  "LICENSE",
+  "README.md",
+  "package.json",
+  "tailwind.config.js",
+  "yarn.lock",
+  "jekyll-theme-acg.gemspec",
+  "jekyll-theme-acg-*.gem",
+]
 
 sass:
-  sass_dir: _sass
   style: compressed
 
-collections_dir: "" # /source
+collections_dir: ""
 collections:
   posts:
     output: true

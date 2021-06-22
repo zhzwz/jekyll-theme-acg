@@ -1,8 +1,8 @@
 Gem::Specification.new do |spec|
   spec.name     = "jekyll-theme-acg"
-  spec.version  = "1.0.1"
+  spec.version  = "1.0.2"
   spec.authors  = ["Coder Zhao"]
-  spec.email    = ["coderzhaoziwei@outlook.com"]
+  spec.email    = "coderzhaoziwei@outlook.com"
 
   spec.summary  = "An awesome theme for Jekyll."
   spec.homepage = "https://github.com/coderzhaoziwei/jekyll-theme-acg"
@@ -19,12 +19,12 @@ Gem::Specification.new do |spec|
   # Jekyll will merge its pre-configuring data into the site’s existing configuration data.
   spec.files = Dir["_config.yml"]
   # Other files
-  spec.files += Dir["LICENSE"]
   spec.files += Dir["README.md"]
-  spec.files += Dir["source/_sass/*"]
-  spec.files += Dir["source/assets/*"]
-  spec.files += Dir["source/_layouts/*"]
-  spec.files += Dir["source/_includes/*"]
+  spec.files += Dir["LICENSE"]
+  spec.files += Dir["_includes/*"]
+  spec.files += Dir["_layouts/*"]
+  spec.files += Dir["_sass/*"]
+  spec.files += Dir["assets/css/*"]
 
   spec.add_runtime_dependency "jekyll", ">= 4.0", "< 5.0"
   spec.add_runtime_dependency "jekyll-feed", "~> 0.9"
