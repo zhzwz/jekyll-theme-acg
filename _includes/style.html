@@ -1,78 +1,23 @@
 {% capture style %}style{% endcapture %}
 {% capture color %}{{ page.color | default: site.color }}{% endcapture %}
 {% capture output %}
-::-webkit-scrollbar {
-  width: 4px;
-  height: 4px;
-}
-::-webkit-scrollbar-track-piece {
-  background: var(--{{ color }}-200);
-}
-::-webkit-scrollbar-thumb {
-  border-radius: 4px;
-  background-color: var(--{{ color }}-600);
-  background-image: repeating-linear-gradient(
-    -45deg,
-    var(--{{ color }}-600) 0,
-    var(--{{ color }}-600) 32px,
-    var(--{{ color }}-400) 32px,
-    var(--{{ color }}-400) 36px
-  );
-}
-::-webkit-scrollbar-thumb:vertical {
-  height: 4px;
-}
-::-webkit-scrollbar-thumb:horizontal {
-  width: 4px;
+:root {
+  --theme-50: var(--{{ color }}-50);
+  --theme-100: var(--{{ color }}-100);
+  --theme-200: var(--{{ color }}-200);
+  --theme-300: var(--{{ color }}-300);
+  --theme-400: var(--{{ color }}-400);
+  --theme-500: var(--{{ color }}-500);
+  --theme-600: var(--{{ color }}-600);
+  --theme-700: var(--{{ color }}-700);
+  --theme-800: var(--{{ color }}-800);
+  --theme-900: var(--{{ color }}-900);
 }
 
-.markdown-body a {
-  color: var(--{{ color }}-600);
-  font-weight: 500;
-}
-.markdown-body a.reversefootnote {
-  font-family: monospace;
-}
-.markdown-body h1, .markdown-body h2 {
-  border-bottom-color: var(--{{ color }}-600);
-}
-.markdown-body hr {
-  background-color: var(--{{ color }}-600);
-}
-.markdown-body blockquote {
-  color: var(--{{ color }}-500);
-  border-left-color: var(--{{ color }}-600);
-}
-.markdown-body code:not(.hljs) {
-  color: var(--{{ color }}-600);
+.bg-image {
+  background-image: url("{{ page.background | default: site.background }}");
 }
 
-.markdown-body .task-list-item {
-  display: flex;
-  align-items: center;
-}
-.markdown-body .task-list-item input[type="checkbox"] {
-  appearance: none;
-}
-.markdown-body .task-list-item input[type="checkbox"]::before{
-  content: "";
-  display: block;
-  width: 1em;
-  height: 1em;
-  line-height: 1;
-  margin-right: 0.5em;
-  text-align: center;
-  border-radius: 4px;
-  color: white;
-  background-color: var(--{{ color }}-600);
-}
-.markdown-body .task-list-item input[type="checkbox"][checked]::before{
-  content: "\2713";
-}
-
-.markdown-body .footnotes {
-  padding-top: 2em;
-}
 {% endcapture %}
 
 {%- comment -%}{%- endcomment -%}

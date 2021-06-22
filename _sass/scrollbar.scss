@@ -1,0 +1,24 @@
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track-piece {
+  background: var(--theme-200);
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: var(--theme-600);
+  background-image: repeating-linear-gradient(
+    -45deg,
+    var(--theme-600) 0,
+    var(--theme-600) 32px,
+    var(--theme-400) 32px,
+    var(--theme-400) 36px
+  );
+}
+::-webkit-scrollbar-thumb:vertical {
+  height: 4px;
+}
+::-webkit-scrollbar-thumb:horizontal {
+  width: 4px;
+}

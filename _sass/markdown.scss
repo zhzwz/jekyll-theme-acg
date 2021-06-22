@@ -1,5 +1,29 @@
+.markdown-body h1,
+.markdown-body h2 {
+  border-bottom-color: var(--theme-600);
+}
+.markdown-body hr {
+  background-color: var(--theme-600);
+}
+
+.markdown-body blockquote {
+  color: var(--theme-500);
+  border-left-color: var(--theme-600);
+}
+
+.markdown-body code:not(.hljs) {
+  color: var(--theme-600);
+}
+
+.markdown-body a {
+  font-weight: 500;
+  color: var(--theme-600);
+}
 .markdown-body a:hover {
   text-decoration: underline;
+}
+.markdown-body a.reversefootnote {
+  font-family: monospace;
 }
 
 .markdown-body .highlight pre,
@@ -32,4 +56,31 @@
 .markdown-body ul ol ul,
 .markdown-body ol ol ul {
   list-style-type: square;
+}
+
+.markdown-body .footnotes {
+  padding-top: 2em;
+}
+
+.markdown-body .task-list-item {
+  display: flex;
+  align-items: center;
+}
+.markdown-body .task-list-item input[type="checkbox"] {
+  appearance: none;
+}
+.markdown-body .task-list-item input[type="checkbox"]::before {
+  content: "";
+  display: block;
+  width: 1em;
+  height: 1em;
+  line-height: 1;
+  margin-right: 0.5em;
+  text-align: center;
+  border-radius: 4px;
+  color: white;
+  background-color: var(--theme-600);
+}
+.markdown-body .task-list-item input[type="checkbox"][checked]::before{
+  content: "\2713";
 }

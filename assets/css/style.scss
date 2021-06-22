@@ -2,15 +2,4 @@
 ---
 @import "root";
 @import "markdown";
-
-.bg-image {
-  background-image: url("{{ page.background | default: site.background }}");
-}
-
-.bg-blur {
-  backdrop-filter: blur(8px);
-}
-
-.max-w-acg {
-  max-width: MIN(90%, 768px);
-}
+@import "scrollbar";
