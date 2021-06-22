@@ -3,7 +3,7 @@ layout: default
 ---
 {% capture color %}{{ page.color | default: site.color }}{% endcapture %}
 
-<div class="w-full max-w-acg m-auto p-4 grid gap-4 grid-cols-1">
+<div class="w-full max-w-acg m-auto p-4 grid gap-6 grid-cols-1">
 
 {%- comment -%}
 paginator.page                The number of the current page
@@ -49,12 +49,11 @@ paginator.next_page_path      The path to the next page, or nil if no subsequent
   {% capture description %}{{ post.description | default: post.excerpt | default: site.description | strip_html }}{% endcapture %}
 
   {% assign tags = post.tags | default: nil %}
+  {% assign categories = post.categories | default: nil %}
   {% assign pin = post.pin | default: false %}
 {% endcapture %}
-
-
   <!-- PostItem -->
-  <div class="relative p-4 pb-0 rounded-lg flex flex-col justify-between bg-{{ color }}-50 bg-opacity-75 text-black">
+  <div class="relative p-3 pb-1 rounded-lg flex flex-col justify-between bg-{{ color }}-50 bg-opacity-75 text-black">
     <!-- Pin -->
     {% if pin %}
     <svg xmlns="http://www.w3.org/2000/svg" class="absolute -left-2 -top-2 h-6 w-6 text-{{ color }}-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -63,26 +62,32 @@ paginator.next_page_path      The path to the next page, or nil if no subsequent
     {% endif %}
 
     <a class="block text-3xl font-serif font-medium" href="{{ url }}">{{ title }}</a>
-    <span class="block text-md font-extralight">{{ description }}</span>
-    <div class="flex">
+
+    <span class="block p-1 text-sm font-extralight">{{ description }}</span>
+
+    <div class="flex flex-wrap select-none">
       <!-- Date -->
-      <div class="flex-grow text-sm text-gray-500 flex items-center self-end">
-        <svg xmlns="http://www.w3.org/2000/svg" class="inline-block h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-        </svg>
+      <div class="flex-grow mx-px text-sm text-{{ color }}-500 text-opacity-75 flex items-center self-end">
+        <svg xmlns="http://www.w3.org/2000/svg" class="inline-block h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
         <span class="inline-block p-1 whitespace-nowrap">{{ date }}</span>
       </div>
-      <!-- Tags -->
-      <div class="flex flex-wrap justify-end">
 
+      <div class="flex flex-wrap">
+        <!-- Categories -->
+        {% for category in categories %}
+        <!-- Category -->
+        <a class="mx-px text-sm text-{{ color }}-500 text-opacity-75 flex items-center" href="">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" /></svg>
+          <span class="inline-block p-1">{{ category }}</span>
+        </a>
+        {% endfor %}
+        <!-- Tags -->
         {%- for tag in tags -%}
         <!-- Tag -->
-        <div class="text-sm text-gray-500 flex items-center">
-          <svg xmlns="http://www.w3.org/2000/svg" class="inline-block h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
-          </svg>
+        <a class="mx-px text-sm text-{{ color }}-500 text-opacity-75 flex items-center" href="">
+          <svg xmlns="http://www.w3.org/2000/svg" class="inline-block h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" /></svg>
           <span class="inline-block p-1">{{ tag }}</span>
-        </div>
+        </a>
         {%- endfor -%}
 
       </div>
