@@ -1,0 +1,26 @@
+{% capture workspace %}
+  {% assign color = page.color | default: site.color %}
+  {% assign name = include.name | default: "CATEGORY" %}
+  {% assign count = include.count | default: 0 %}
+  {% assign href = "/categories/" | append: name | relative_url %}
+  {% assign zoom = include.zoom | default: false %}
+
+  {% if zoom %}
+    {% assign textClass = "text-2xl text-color-50 text-opacity-75 " | replace: "color", color  %}
+    {% assign svgClass = "h-8 w-8" %}
+    {% assign countClass = "text-color-50 text-opacity-50" | replace: "color", color %}
+  {% else %}
+    {% assign textClass = "text-sm text-color-500 text-opacity-75" | replace: "color", color  %}
+    {% assign svgClass = "h-4 w-4" %}
+    {% assign countClass = "text-color-500 text-opacity-50" | replace: "color", color %}
+  {% endif %}
+
+{% endcapture %}
+
+<a class="mx-px {{ textClass }} text-opacity-75 flex items-center" href="{{ href }}">
+  <svg xmlns="http://www.w3.org/2000/svg" class="{{ svgClass }}" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" /></svg>
+  <span class="inline-block p-1">{{ name }}</span>
+  {% if count > 0 %}
+  <span class="inline-block p-1 {{ countClass }}">{{ count }}</span>
+  {% endif %}
+</a>
