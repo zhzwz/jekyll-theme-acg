@@ -6,26 +6,22 @@
     <a class="hover:text-{{ color }}-400 text-2xl" href="{{ site.url | default: "/" | relative_url }}">{{ site.title }}</a>
     <div class="hidden md:block space-x-4">
       <a class="hover:text-{{ color }}-400" href="{{ "/tags" | relative_url }}">Tags</a>
-      <a class="hover:text-{{ color }}-400" href="{{ "/archives" | relative_url }}">Archives</a>
+      <a class="hover:text-{{ color }}-400" href="{{ "/categories" | relative_url }}">Categories</a>
       <a class="hover:text-{{ color }}-400" href="{{ "/about" | relative_url }}">About</a>
     </div>
-    <div class="md:hidden">
-      <style>#theme-menu:focus + #theme-menu-dropdown { display: block; }</style>
-      <button
-        id="theme-menu"
-        class="focus:outline-none focus:text-{{ color }}-400 "
-      >
+    <div id="theme-menu" class="md:hidden">
+      <style>#theme-menu:hover > #theme-menu-dropdown { display: block; }</style>
+      <button class="hover:outline-none hover:text-{{ color }}-400">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
-      <div class="hidden origin-top-right absolute right-1 mt-1 rounded-md py-1 bg-{{ color }}-100 focus:block focus:outline-none" id="theme-menu-dropdown">
-        <a class="block px-4 py-2 text-sm text-{{ color }}-600 hover:text-{{ color }}-400" href="{{ "/tags" | relative_url }}">Tags</a>
-        <a class="block px-4 py-2 text-sm text-{{ color }}-600 hover:text-{{ color }}-400" href="{{ "/archives" | relative_url }}">Archives</a>
-        <a class="block px-4 py-2 text-sm text-{{ color }}-600 hover:text-{{ color }}-400" href="{{ "/about" | relative_url }}">About</a>
+      <div class="hidden origin-top-right absolute right-1 rounded-md py-1 bg-{{ color }}-100 bg-opacity-50 focus:block focus:outline-none" id="theme-menu-dropdown">
+        <a class="block px-4 py-2 text-sm text-{{ color }}-600 hover:bg-{{ color }}-200" href="{{ "/tags" | relative_url }}">Tags</a>
+        <a class="block px-4 py-2 text-sm text-{{ color }}-600 hover:bg-{{ color }}-200" href="{{ "/categories" | relative_url }}">Categories</a>
+        <a class="block px-4 py-2 text-sm text-{{ color }}-600 hover:bg-{{ color }}-200" href="{{ "/about" | relative_url }}">About</a>
       </div>
     </div>
 
   </nav>
 </header>
-{%- comment -%}{%- endcomment -%}

@@ -1,0 +1,21 @@
+---
+layout: default
+---
+{% assign color = page.color | default: site.color %}
+
+{% assign categoryList = "" | split: "" %}
+{% for item in site.categories %}
+  {% assign categoryName = item[0] %}
+  {% assign categoryList = categoryList | push: categoryName %}
+{% endfor %}
+{% assign categoryList = categoryList | sort %}
+
+<div class="min-h-screen py-16 flex flex-wrap justify-center items-center content-center select-none">
+  <div class="w-full py-8 font-serif text-4xl text-{{ color }}-50 text-center">{{ site.CATEGORIES | default: "CATEGORIES" }}</div>
+  {% for categoryName in categoryList %}
+    {% assign categoryCount = site.categories[categoryName].size %}
+    <div class="m-1 px-2 bg-{{ color }}-50 bg-opacity-75 rounded">
+      {% include item-category.html name=categoryName count=categoryCount %}
+    </div>
+  {% endfor %}
+</div>
