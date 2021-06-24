@@ -1,7 +1,6 @@
-{% capture color %}{{ page.color | default: site.color }}{% endcapture %}
+{% assign color = page.color | default: site.color %}
 
-{%- comment -%}{%- endcomment -%}
-<footer class="w-full p-2 text-xs text-{{ color }}-100 ">
+<footer class="w-full mt-4 p-2 text-sm text-{{ color }}-100 ">
   <p class="text-center">
     Powered by
     <a class="text-{{ color }}-400" href="https://jekyllrb.com" target="_block">Jekyll</a>
@@ -14,4 +13,3 @@
     · All rights reserved.
   </p>
 </footer>
-{%- comment -%}{%- endcomment -%}
