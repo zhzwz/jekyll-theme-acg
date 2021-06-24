@@ -1,13 +1,16 @@
 ---
 layout: default
 ---
-{% capture color %}{{ page.color | default: site.color }}{% endcapture %}
+{% assign color = page.color | default: site.color %}
+{% assign title = page.title | default: site.title %}
+{% assign description = page.description | default: site.description %}
 
-{{ page.background | default: site.background | relative_url }}
+<div class="w-full h-screen flex flex-col justify-center items-center select-none text-{{ color }}-50">
+  <div class="font-serif text-4xl w-3/4 text-center py-4">{{ title }}</div>
+  <div class="font-sans text-base w-2/3 text-center">{{ description }}</div>
+</div>
 
-<div class="w-full max-w-acg m-auto p-4 grid gap-6 grid-cols-1">
-
-{%- comment -%}
+{% comment %}
 paginator.page                The number of the current page
 paginator.per_page            Number of posts per page
 paginator.posts               Posts available for the current page
@@ -17,85 +20,9 @@ paginator.previous_page       The number of the previous page, or nil if no prev
 paginator.previous_page_path  The path to the previous page, or nil if no previous page exists
 paginator.next_page           The number of the next page, or nil if no subsequent page exists
 paginator.next_page_path      The path to the next page, or nil if no subsequent page exists
-{%- endcomment -%}
-
-{% capture workspace %}
-  {% assign posts1 = "" | split: "" %}
-  {% assign posts2 = "" | split: "" %}
-
-  {% for post in site.posts %}
-    {% if post.pin %}
-      {% assign posts1 = posts1 | push: post %}
-    {% else %}
-      {% assign posts2 = posts2 | push: post %}
-    {% endif %}
-  {% endfor %}
-
-  {% assign posts = posts1 | concat: posts2 %}
-
-  {% assign offset = paginator.page | minus: 1 | times: paginator.per_page %}
-  {% assign count = paginator.posts | size | minus: 1 %}
-  {% assign minIndex = offset %}
-  {% assign maxIndex = offset | plus: count %}
-{% endcapture %}
-
-{%- for index in (minIndex..maxIndex) -%}
-
-{% capture workspace %}
-  {% assign index = offset | plus: i %}
-  {% assign post = posts[index] %}
-
-  {% capture url %}{{ post.id | relative_url }}{% endcapture %}
-  {% capture title %}{{ post.title | default: "NO TITLE" | escape }}{% endcapture %}
-  {% capture date %}{{ post.date | date: "%Y-%m-%d" }}{% endcapture %}
-  {% capture description %}{{ post.description | default: post.excerpt | default: site.description | strip_html }}{% endcapture %}
-
-  {% assign tags = post.tags | default: nil %}
-  {% assign categories = post.categories | default: nil %}
-  {% assign pin = post.pin | default: false %}
-{% endcapture %}
-  <!-- PostItem -->
-  <div class="relative p-3 pb-1 rounded-lg flex flex-col justify-between bg-{{ color }}-50 bg-opacity-75 text-black">
-    <!-- Pin -->
-    {% if pin %}
-    <svg xmlns="http://www.w3.org/2000/svg" class="absolute -left-2 -top-2 h-6 w-6 text-{{ color }}-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
-    </svg>
-    {% endif %}
-
-    <a class="block text-3xl font-serif font-medium" href="{{ url }}">{{ title }}</a>
-
-    <span class="block p-1 text-sm font-extralight">{{ description }}</span>
-
-    <div class="flex flex-wrap select-none">
-      <!-- Date -->
-      <div class="flex-grow mx-px text-sm text-{{ color }}-500 text-opacity-75 flex items-center self-end">
-        <svg xmlns="http://www.w3.org/2000/svg" class="inline-block h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
-        <span class="inline-block p-1 whitespace-nowrap">{{ date }}</span>
-      </div>
-
-      <div class="flex flex-wrap">
-        <!-- Categories -->
-        {% for category in categories %}
-        <!-- Category -->
-        <a class="mx-px text-sm text-{{ color }}-500 text-opacity-75 flex items-center" href="">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" /></svg>
-          <span class="inline-block p-1">{{ category }}</span>
-        </a>
-        {% endfor %}
-        <!-- Tags -->
-        {%- for tag in tags -%}
-        <!-- Tag -->
-        <a class="mx-px text-sm text-{{ color }}-500 text-opacity-75 flex items-center" href="">
-          <svg xmlns="http://www.w3.org/2000/svg" class="inline-block h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" /></svg>
-          <span class="inline-block p-1">{{ tag }}</span>
-        </a>
-        {%- endfor -%}
-
-      </div>
-    </div>
-  </div>
-{%- endfor -%}
+{% endcomment %}
+<div class="w-full max-w-acg m-auto p-4 grid gap-6 grid-cols-1">
+  {% include posts.html posts=site.posts%}
 
 
 <!-- Paginator -->

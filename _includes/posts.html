@@ -1,0 +1,53 @@
+{% capture workspace %}
+  {% assign posts1 = "" | split: "" %}
+  {% assign posts2 = "" | split: "" %}
+
+  {% for post in include.posts %}
+    {% if post.pin %}
+      {% assign posts1 = posts1 | push: post %}
+    {% else %}
+      {% assign posts2 = posts2 | push: post %}
+    {% endif %}
+  {% endfor %}
+
+  {% assign posts = posts1 | concat: posts2 %}
+
+  {% if page.layout == "home" %}
+    {% assign offset = paginator.page | minus: 1 | times: paginator.per_page %}
+    {% assign count = paginator.posts | size | minus: 1 %}
+    {% assign minIndex = offset %}
+    {% assign maxIndex = offset | plus: count %}
+  {% else %}
+    {% assign minIndex = 0 %}
+    {% assign maxIndex = posts.size | minus: 1 %}
+  {% endif %}
+
+{% endcapture %}
+
+{% for index in (minIndex..maxIndex) %}
+  {% capture workspace %}
+    {% assign post = posts[index] %}
+    {% assign pin = post.pin | default: false %}
+    {% assign href = post.id | relative_url %}
+    {% assign title = post.title | default: "NO TITLE" | escape %}
+    {% assign description = post.description | default: post.excerpt | default: site.description | strip_html %}
+    {% assign date = post.date %}
+    {% assign tags = post.tags | default: nil %}
+    {% assign categories = post.categories | default: nil %}
+  {% endcapture %}
+
+<div class="relative p-3 pb-1 rounded-lg flex flex-col justify-between bg-{{ color }}-50 bg-opacity-75 text-black">
+  {% if post.pin %}{% include item-pin.html %}{% endif %}
+  <a class="block text-3xl font-serif font-medium" href="{{ href }}">{{ title }}</a>
+  <span class="block p-1 text-sm font-extralight">{{ description }}</span>
+
+  <div class="flex flex-wrap select-none">
+    <div class="flex-grow">{% include item-date.html date=date %}</div>
+    <div class="flex flex-wrap">
+      {% for category in categories %}{% include item-category.html name=category %}{% endfor %}
+      {% for tag in tags %}{% include item-tag.html name=tag %}{% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endfor %}

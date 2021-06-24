@@ -1,5 +1,4 @@
-{% capture style %}style{% endcapture %}
-{% capture color %}{{ page.color | default: site.color }}{% endcapture %}
+{% assign color = page.color | default: site.color %}
 {% capture output %}
 :root {
   --theme-50: var(--{{ color }}-50);
@@ -13,13 +12,11 @@
   --theme-800: var(--{{ color }}-800);
   --theme-900: var(--{{ color }}-900);
 }
-
 .bg-image {
-  background-image: url("{{ page.background | default: site.background }}");
+  background-image: url("{{ page.background | default: site.background | relative_url }}");
 }
-
 {% endcapture %}
 
 {%- comment -%}{%- endcomment -%}
-<{{ style }}>{{ output }}</{{ style }}>
+<{{ "style" }}>{{ output }}</{{ "style" }}>
 {%- comment -%}{%- endcomment -%}
