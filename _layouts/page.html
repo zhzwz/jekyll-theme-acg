@@ -1,3 +1,13 @@
 ---
 layout: default
 ---
+
+{% assign color = page.color | default: site.color %}
+
+<div class="w-acg min-h-screen mt-16">
+  <div class="w-full py-16 text-{{ color }}-50 flex flex-col justify-center items-center content-center">
+    <div class="text-center text-4xl font-serif">{{ page.title }}</div>
+    <div class="text-center text-base font-sans">{{ page.description }}</div>
+  </div>
+  <article class="w-full my-4 mx-auto p-4 rounded-lg text-black bg-{{ color }}-50 bg-opacity-75 markdown-body">{{ content }}</article>
+</div>

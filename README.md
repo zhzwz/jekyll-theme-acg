@@ -1,6 +1,20 @@
 <h1 style="text-align:center;">Jekyll Theme ACG</h1>
 
-![](https://badge.fury.io/rb/jekyll-theme-acg.svg)
+<div style="text-align:center;">
+  <!-- gem version -->
+  <a href="https://rubygems.org/gems/jekyll-theme-acg">
+    <image src="https://img.shields.io/gem/v/jekyll-theme-acg"></image>
+  </a>
+  <!-- gem downloads -->
+  <a href="https://rubygems.org/gems/jekyll-theme-acg">
+    <image src="https://img.shields.io/gem/dt/jekyll-theme-acg"></image>
+  </a>
+  <!-- github stars -->
+  <a href="https://github.com/coderzhaoziwei/jekyll-theme-acg">
+    <image src="https://img.shields.io/github/stars/coderzhaoziwei/jekyll-theme-acg?style=social"></image>
+  </a>
+</div>
+
 
 ## About
 

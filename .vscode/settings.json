@@ -18,4 +18,7 @@
   "files.insertFinalNewline": true,
   "editor.minimap.renderCharacters": false,
   "editor.minimap.showSlider": "always",
+
+  "42header.username": "Coder Zhao",
+  "42header.email": "coderzhaoziwei@outlook.com"
 }
