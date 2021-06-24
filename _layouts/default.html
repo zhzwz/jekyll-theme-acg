@@ -1,8 +1,29 @@
-{% capture lang %}{{ page.lang | default: site.lang | default: "en-US" }}{% endcapture %}
-{%- comment -%}{%- endcomment -%}
 <!DOCTYPE html>
-<html lang="{{ lang }}" class="min-h-screen bg-image bg-cover bg-center bg-fixed">
-{% include head.html %}
-{% include body.html %}
+<html lang="{{ page.lang | default: site.lang | default: "en-US" }}" class="min-h-screen bg-image bg-cover bg-center bg-fixed">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+{% seo %}<!-- Begin Jekyll Feed -->
+{% feed_meta %}
+<!-- End Jekyll Feed -->
+
+  <!-- Tailwind Style -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2/dist/tailwind.min.css">
+  <!-- Primer Markdown Style -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/primer-markdown@4.0.0/build/build.css">
+  <!-- HighlightJS -->
+  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.1/build/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <!-- HighlightJS Theme VS2015 Style -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.0.1/styles/vs2015.css">
+  <!-- Theme Style -->
+  <link rel="stylesheet" href="{{ "assets/css/style.css" | relative_url }}">
+  {% include style.html %}
+</head>
+<body class="flex flex-col items-center bg-black bg-opacity-50">
+  {% include header.html %}
+  {{ content }}
+  {% include footer.html %}
+</body>
 </html>
-{%- comment -%}{%- endcomment -%}
