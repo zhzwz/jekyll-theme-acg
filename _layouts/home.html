@@ -1,9 +1,9 @@
 ---
 layout: default
 ---
-{% assign color = page.color | default: site.color %}
-{% assign title = page.title | default: site.title %}
-{% assign description = page.description | default: site.description %}
+{% assign color = site.color %}
+{% assign title = site.title %}
+{% assign description = site.description %}
 
 <div class="w-full h-screen flex flex-col justify-center items-center select-none text-{{ color }}-50">
   <div class="font-serif text-4xl w-3/4 text-center py-4">{{ title }}</div>

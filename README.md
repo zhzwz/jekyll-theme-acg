@@ -1,24 +1,13 @@
-<h1 style="text-align:center;">Jekyll Theme ACG</h1>
+# Jekyll Theme ACG
 
-<div style="text-align:center;">
-  <!-- gem version -->
-  <a href="https://rubygems.org/gems/jekyll-theme-acg">
-    <image src="https://img.shields.io/gem/v/jekyll-theme-acg"></image>
-  </a>
-  <!-- gem downloads -->
-  <a href="https://rubygems.org/gems/jekyll-theme-acg">
-    <image src="https://img.shields.io/gem/dt/jekyll-theme-acg"></image>
-  </a>
-  <!-- github stars -->
-  <a href="https://github.com/coderzhaoziwei/jekyll-theme-acg">
-    <image src="https://img.shields.io/github/stars/coderzhaoziwei/jekyll-theme-acg?style=social"></image>
-  </a>
-</div>
+![](https://img.shields.io/gem/v/jekyll-theme-acg)
+![](https://img.shields.io/gem/dt/jekyll-theme-acg)
+![](https://img.shields.io/github/stars/coderzhaoziwei/jekyll-theme-acg?style=social)
 
-
-## About
+## Status: Beta
 
 This theme is still under development, just waiting for me...
+
 
 ## Usage
 
@@ -50,8 +39,21 @@ layout: home
 bundle update & bundle exec jekyll serve -o
 ```
 
+## Documentation
+
+To be continued...
+
 
 ## Thanks
 
 - Markdown Style: https://github.com/primer/css/tree/main/src/markdown
 - Highlight JS: https://highlightjs.org
+
+
+## License
+
+MIT
+
+
+<!-- https://rubygems.org/gems/jekyll-theme-acg -->
+<!-- https://github.com/coderzhaoziwei/jekyll-theme-acg -->

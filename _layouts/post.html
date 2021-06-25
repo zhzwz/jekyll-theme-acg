@@ -1,31 +1,36 @@
 ---
-layout: page
+layout: default
 ---
+{% capture workspace %}
+  {% assign color = page.color | default: site.color %}
+  {% assign title = page.title %}
+  {% assign description = page.description %}
+{% endcapture %}
 
-{%- comment -%}
-{% assign color = page.color | default: site.color %}
-
-<div class="w-acg min-h-screen mt-16">
+<div class="w-acg min-h-screen py-16">
   <div class="w-full py-32 text-{{ color }}-50 flex flex-col justify-center items-center content-center">
-    <div class="text-center text-4xl font-serif">{{ page.title }}</div>
-    <div class="text-center text-base font-sans py-16">{{ page.description }}</div>
-  </div>
-  <article class="w-full my-4 mx-auto p-4 rounded-lg text-black bg-{{ color }}-50 bg-opacity-75 markdown-body">
-    <h1>{{ page.title }}</h1>
-    <!-- Jekyll TOC -->
-    {%- include toc.html html=content -%}
-    <!-- Jekyll TOC End -->
-    {{ content }}
-  </article>
-  <div class="w-full mx-auto flex justify-between space-x-4">
-    <a class="w-1/2 p-4 flex items-center rounded-lg shadow-xl flex-grow bg-{{ color }}-50 bg-opacity-75 {% unless page.next.id %}opacity-0{% endunless %}" {% if page.next.id %}href="{{ page.next.id | relative_url }}"{% endif %}>
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 flex-shrink-0 text-{{ color }}-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 15l-3-3m0 0l3-3m-3 3h8M3 12a9 9 0 1118 0 9 9 0 01-18 0z" /></svg>
-      <span class="ml-4">{{ page.next.title | default: "" }}</span>
-    </a>
-    <a class="w-1/2 p-4 flex items-center flex-row-reverse rounded-lg shadow-xl flex-grow bg-{{ color }}-50 bg-opacity-75 {% unless page.previous.id %}opacity-0{% endunless %}" {% if page.previous.id %}href="{{ page.previous.id | relative_url }}"{% endif %}>
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 flex-shrink-0 text-{{ color }}-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-      <span class="mr-4">{{ page.previous.title | default: "" }}</span>
-    </a>
+    <div class="text-center text-4xl font-serif py-8">{{ title }}</div>
+    <div class="text-center text-base font-sans py-8">{{ description }}</div>
+    <!-- article -->
+    <article class="w-full my-4 mx-auto p-4 rounded-lg text-black bg-{{ color }}-50 bg-opacity-75 markdown-body">
+      <h1>{{ title }}</h1>
+      {% include toc.html html=content %}
+      {{ content }}
+    </article>
+    <!-- footer -->
+    <div class="w-full mx-auto flex justify-between space-x-4">
+      <!-- prev -->
+      {% if page.next and page.next.id %}
+      <a class="w-1/2 p-4 flex items-center rounded-lg bg-{{ color }}-50 bg-opacity-75" href="{{ page.next.id | relative_url }}"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 flex-shrink-0 text-{{ color }}-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 15l-3-3m0 0l3-3m-3 3h8M3 12a9 9 0 1118 0 9 9 0 01-18 0z" /></svg><span class="ml-4 text-black">{{ page.next.title | default: "" }}</span></a>
+      {% else %}
+      <a class="w-1/2 p-4 opacity-0"></a>
+      {% endif %}
+      <!-- next -->
+      {% if page.previous and page.previous.id %}
+      <a class="w-1/2 p-4 flex flex-row-reverse items-center rounded-lg bg-{{ color }}-50 bg-opacity-75" href="{{ page.previous.id | relative_url }}"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 flex-shrink-0 text-{{ color }}-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg><span class="mr-4 text-black">{{ page.previous.title | default: "" }}</span></a>
+      {% else %}
+      <a class="w-1/2 p-4 opacity-0"></a>
+      {% endif %}
+    </div>
   </div>
 </div>
-{%- endcomment -%}

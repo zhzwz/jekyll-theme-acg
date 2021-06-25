@@ -1,9 +1,9 @@
 Gem::Specification.new do |spec|
   spec.name     = "jekyll-theme-acg"
-  spec.version  = "1.0.5"
+  spec.version  = "1.0.6"
   spec.authors  = ["Coder Zhao"]
   spec.email    = "coderzhaoziwei@outlook.com"
-  spec.summary  = "An awesome theme for Jekyll."
+  spec.summary  = "Jekyll Theme ACG For Jekyll"
   spec.description = "This a theme for Jekyll, which still under development."
   spec.homepage = "https://github.com/coderzhaoziwei/jekyll-theme-acg"
   spec.license  = "MIT"
@@ -21,6 +21,7 @@ Gem::Specification.new do |spec|
   # Others
   spec.files += Dir["README.md"]
   spec.files += Dir["LICENSE"]
+  spec.files += Dir["index.html"]
   spec.files += Dir["_includes/*"]
   spec.files += Dir["_layouts/*"]
   spec.files += Dir["_sass/*"]
@@ -30,17 +31,15 @@ Gem::Specification.new do |spec|
   spec.files += Dir["assets/categories.html"]
   spec.files += Dir["assets/tags.html"]
 
-  spec.required_ruby_version = ">= 2.3.0"
-
   spec.add_runtime_dependency "jekyll", "~> 4.2.0", "< 5.0"
-  spec.add_runtime_dependency "kramdown-parser-gfm", "~> 1.1.0"
-  spec.add_runtime_dependency "jekyll-sass-converter", "~> 2.1.0"
-  spec.add_runtime_dependency "jekyll-feed", "~> 0.15.1"
-  spec.add_runtime_dependency "jekyll-seo-tag", "~> 2.7.1"
-  spec.add_runtime_dependency "jekyll-gist", "~> 1.5.0"
-  spec.add_runtime_dependency "jekyll-paginate", "~> 1.1.0"
-  spec.add_runtime_dependency "jekyll-archives", "~> 2.2.1"
-  spec.add_runtime_dependency "jekyll-spaceship", "~> 0.9.9"
+  spec.add_runtime_dependency "kramdown-parser-gfm"
+  spec.add_runtime_dependency "jekyll-sass-converter"
+  spec.add_runtime_dependency "jekyll-feed"
+  spec.add_runtime_dependency "jekyll-seo-tag"
+  spec.add_runtime_dependency "jekyll-gist"
+  spec.add_runtime_dependency "jekyll-paginate"
+  spec.add_runtime_dependency "jekyll-archives"
+  spec.add_runtime_dependency "jekyll-spaceship"
 
-  spec.add_development_dependency "bundler", "~> 2.1.4"
+  spec.add_development_dependency "bundler"
 end
