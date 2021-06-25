@@ -1,6 +1,7 @@
 ---
-layout: default
+layout: page
 ---
+{%- comment -%}
 {% assign color = page.color | default: site.color %}
 {% assign title = page.title | capitalize %}
 
@@ -12,3 +13,4 @@ layout: default
     {% include posts.html posts=page.posts %}
   </div>
 </div>
+{%- endcomment -%}

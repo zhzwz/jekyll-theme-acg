@@ -1,13 +1,68 @@
 ---
 layout: default
 ---
+{% capture workspace %}
+  {% assign color = page.color | default: site.color %}
+  {% assign title = page.title %}
+  {% assign description = page.description %}
+  {% assign layout = page.layout %}
 
-{% assign color = page.color | default: site.color %}
+  {% assign list = "" | split: "" %}
+  {% if layout == "categories" %}
+    {% assign title = site.title.categories | default: "Categories" %}
+    {% for item in site.categories %}
+      {% assign list = list | push: item[0] %}
+    {% endfor %}
+  {% elsif layout == "tags" %}
+    {% assign title = site.title.tags | default: "Tags" %}
+    {% for item in site.tags %}
+      {% assign list = list | push: item[0] %}
+    {% endfor %}
+  {% endif %}
+  {% assign list = list | sort %}
 
-<div class="w-acg min-h-screen mt-16">
-  <div class="w-full py-16 text-{{ color }}-50 flex flex-col justify-center items-center content-center">
-    <div class="text-center text-4xl font-serif">{{ page.title }}</div>
-    <div class="text-center text-base font-sans">{{ page.description }}</div>
+{% endcapture %}
+
+<div class="w-acg min-h-screen py-16">
+  <div class="w-full py-32 text-{{ color }}-50 flex flex-col justify-center items-center content-center">
+    <!-- title -->
+    <div class="text-center text-4xl font-serif py-8">
+      {% if layout == "category" %}{% include item-category.html name=title title=true %}
+      {% elsif layout == "tag" %}{% include item-tag.html name=title title=true %}
+      {% else %}{{ title }}{% endif %}
+    </div>
+    <!-- description -->
+    <div class="text-center text-base font-sans py-8">{{ description }}</div>
+    <!-- categories/tags: list -->
+    <div class="flex flex-wrap justify-center items-center content-center select-none">
+    {% if layout == "categories" %}
+      {% for name in list %}{% assign count = site.categories[name].size %}
+      <div class="m-1 px-2 bg-{{ color }}-50 bg-opacity-75 rounded">{% include item-category.html name=name count=count %}</div>
+      {% endfor %}
+    {% elsif layout == "tags" %}
+      {% for name in list %}{% assign count = site.tags[name].size %}
+      <div class="m-1 px-2 bg-{{ color }}-50 bg-opacity-75 rounded">{% include item-tag.html name=name count=count %}</div>
+      {% endfor %}
+    {% endif %}
+    </div>
+    <!-- page: article -->
+    {% if layout == "page" %}
+    <article class="w-full my-4 mx-auto p-4 rounded-lg text-black bg-{{ color }}-50 bg-opacity-75 markdown-body">{{ content }}</article>
+    {% endif %}
+    <!-- post: article / prev / next -->
+    {% if layout == "post" %}
+    <article class="w-full my-4 mx-auto p-4 rounded-lg text-black bg-{{ color }}-50 bg-opacity-75 markdown-body">
+      <h1>{{ title }}</h1>
+      {% include toc.html html=content %}
+      {{ content }}
+    </article>
+    {% include post-footer.html %}
+    {% endif %}
+    <!-- category/tag: posts -->
+    {% if layout == "category" or layout == "tag" %}
+    <div class="w-full p-4 flex flex-col space-y-4">{% include posts.html posts=page.posts %}</div>
+    {% endif %}
+
   </div>
-  <article class="w-full my-4 mx-auto p-4 rounded-lg text-black bg-{{ color }}-50 bg-opacity-75 markdown-body">{{ content }}</article>
+
 </div>
