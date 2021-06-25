@@ -50,8 +50,4 @@
     {% capture output %}{{ output }}</li>{% if include.ordered %}</ol>{% else %}</ul>{% endif %}{% endcapture %}
   {% endfor %}
 
-{% endcapture %}
-
-{%- comment -%}{%- endcomment -%}
-{{ output }}
-{%- comment -%}{%- endcomment -%}
+{% endcapture %}{{ output }}
