@@ -1,7 +1,9 @@
 ---
-title: Theme color purple
-description: Show the rendering effect of theme color purple.
-color: purple
+title: Configure color pink
+description: Show the rendering effect of theme color pink.
+tags: config color
+categories: guide
+color: pink
 ---
 
 ## Header 2

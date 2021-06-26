@@ -1,7 +1,9 @@
 ---
-title: Theme color red
-description: Show the rendering effect of theme color red.
-color: red
+title: Configure color yellow
+description: Show the rendering effect of theme color yellow.
+tags: config color
+categories: guide
+color: yellow
 ---
 
 ## Header 2

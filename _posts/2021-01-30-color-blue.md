@@ -1,6 +1,8 @@
 ---
-title: Theme color blue
+title: Configure color blue
 description: Show the rendering effect of theme color blue.
+tags: config color
+categories: guide
 color: blue
 ---
 

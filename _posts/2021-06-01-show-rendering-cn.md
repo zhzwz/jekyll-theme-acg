@@ -24,60 +24,6 @@ color: red
 
 Github 支持的 Markdown 语法标准被称为 [GitHub Flavored Markdown](https://help.github.com/articles/github-flavored-markdown)，简称 GFM。Jekyll Theme ACG 主题在 GFM 的语法之外还支持一些其他的特性与使用方式。
 
-## Front Matter
-
-每篇文章都必须在开头使用 YAML 格式的 Front Matter。
-
-Front Matter 会使文件被 Jekyll 识别为特殊文件，Front Matter 的内容将会被绑定为这篇文章的独有属性。
-
-例如，下面就是这篇文章的 Front Matter：
-
-```
----
-title: Markdown 语法的渲染效果展示页
-description: 详细展示 Jekyll Theme ACG 主题对于 Markdown 语法的渲染效果，以及介绍该主题独有的特性与使用方式。
-categories: guide
-tags: markdown theme chinese
-color: red
-pin: true
----
-```
-
-### title
-
-文章的标题。
-
-如果没有手动设置 title 值，那么 Jekyll 将会使用文件名生成一个 title 值。例如这篇文章的文件名是 `2021-06-01-show-rendering-cn.md`，自动生成的标题为 `Show Rendering Cn`，通常应该避免这种情况。
-
-### description
-
-文章的简述。
-
-如果没有手动设置 description 的值，那么 Jekyll 将会自动提取文章的开头生成一个 description 值。
-
-### categories
-
-文章的分类。
-
-如果一篇文章有多个分类，分类名称之间使用空格分割。
-
-### tags
-
-文章的标签。
-
-如果一篇文章有多个标签，标签名称之间使用空格分割。
-
-### color
-
-文章的主题色。
-
-如果没有手动设置 color 的值，那么 Jekyll 将会读取配置文件 `_config.yml` 中的 color 值。
-
-### pin
-
-文章置顶选项。
-
-如果没有手动设置 pin 的值，那么本篇文章就不会在首页置顶。
 
 ## 列表
 

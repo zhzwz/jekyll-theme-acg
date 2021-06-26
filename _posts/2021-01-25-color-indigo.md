@@ -1,7 +1,9 @@
 ---
-title: Theme color pink
-description: Show the rendering effect of theme color pink.
-color: pink
+title: Configure color indigo
+description: Show the rendering effect of theme color indigo.
+tags: config color
+categories: guide
+color: indigo
 ---
 
 ## Header 2
