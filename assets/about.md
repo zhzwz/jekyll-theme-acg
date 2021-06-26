@@ -1,5 +1,4 @@
 ---
-layout: page
 title: About
 description: Info about this theme.
 permalink: /about.html

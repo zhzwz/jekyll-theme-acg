@@ -1,5 +1,5 @@
 {
-  "version": "1.0.6",
+  "version": "1.0.7",
   "scripts": {
     "bundle:serve": "bundle update && bundle exec jekyll serve -o",
     "gem:build": "rm jekyll-theme-acg-*.gem && gem build jekyll-theme-acg.gemspec",

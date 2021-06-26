@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name     = "jekyll-theme-acg"
-  spec.version  = "1.0.6"
+  spec.version  = "1.0.7"
   spec.authors  = ["Coder Zhao"]
   spec.email    = "coderzhaoziwei@outlook.com"
   spec.summary  = "Jekyll Theme ACG For Jekyll"
@@ -26,10 +26,7 @@ Gem::Specification.new do |spec|
   spec.files += Dir["_layouts/*"]
   spec.files += Dir["_sass/*"]
   spec.files += Dir["assets/css/style.scss"]
-  spec.files += Dir["assets/404.html"]
-  spec.files += Dir["assets/about.md"]
-  spec.files += Dir["assets/categories.html"]
-  spec.files += Dir["assets/tags.html"]
+  spec.files += Dir["assets/*.md"]
 
   spec.add_runtime_dependency "jekyll", "~> 4.2.0", "< 5.0"
   spec.add_runtime_dependency "kramdown-parser-gfm"
