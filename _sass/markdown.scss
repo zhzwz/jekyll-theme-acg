@@ -2,13 +2,20 @@
 .markdown-body h2 {
   border-bottom-color: var(--theme-600);
 }
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  color: var(--theme-900);
+}
+
 .markdown-body hr {
   background-color: var(--theme-600);
 }
 
 .markdown-body blockquote {
-  color: var(--theme-500);
-  border-left-color: var(--theme-600);
+  color: var(--theme-700);
+  border-left-color: var(--theme-700);
+  opacity: 0.75;
 }
 
 .markdown-body code:not(.hljs) {
