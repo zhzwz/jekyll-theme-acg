@@ -1,0 +1,53 @@
+{% capture workspace %}
+
+{% capture color %}{{ page.color | default: site.color | default: "red" }}{% endcapture %}
+{% capture siteUrl %}{{ site.url | default: "/" | relative_url }}{% endcapture %}
+{% capture siteTitle %}{{ site.title }}{% endcapture %}
+
+{% capture categoriesUrl %}{{ "/categories" | relative_url }}{% endcapture %}
+{% capture categoriesLabel %}{{ site.categoriesLabel | default: "Categories" }}{% endcapture %}
+
+{% capture tagsUrl %}{{ "/tags" | relative_url }}{% endcapture %}
+{% capture tagsLabel %}{{ site.tagsLabel | default: "Tags" }}{% endcapture %}
+
+{% capture aboutUrl %}{{ "/about" | relative_url }}{% endcapture %}
+{% capture aboutLabel %}{{ site.aboutLabel | default: "Tags" }}{% endcapture %}
+
+{% capture friendsUrl %}{{ "/friends" | relative_url }}{% endcapture %}
+{% capture friendsLabel %}{{ site.friendsLabel | default: "Friends" }}{% endcapture %}
+{% assign friends = site.data.friends %}
+
+
+
+{% capture output %}
+<header class="w-full fixed z-50 select-none bg-color-600 bg-opacity-10 bg-blur">
+  <nav class="p-4 font-serif text-xl text-color-50 flex justify-between">
+    <a class="hover:text-color-400 text-2xl" href="{{ siteUrl }}">{{ siteTitle }}</a>
+    <div class="hidden md:block space-x-4">
+      <a class="hover:text-color-400" href="{{ categoriesUrl }}">{{ categoriesLabel }}</a>
+      <a class="hover:text-color-400" href="{{ tagsUrl }}">{{ tagsLabel }}</a>
+      <a class="hover:text-color-400" href="{{ aboutUrl }}">{{ aboutLabel }}</a>
+      {% if friends.size > 0 %}
+      <a class="hover:text-color-400" href="{{ friendsUrl }}">{{ friendsLabel }}</a>
+      {% endif %}
+    </div>
+
+    <style>#theme-menu:hover > #theme-menu-dropdown { display: block; }</style>
+    <div id="theme-menu" class="md:hidden">
+      <button class="hover:outline-none hover:text-color-400">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></svg>
+      </button>
+      <div class="hidden origin-top-right absolute right-1 rounded-md py-1 bg-color-100 bg-opacity-50 focus:block focus:outline-none" id="theme-menu-dropdown">
+        <a class="block px-4 py-2 text-sm text-color-600 hover:bg-color-200" href="{{ categoriesUrl }}">{{ categoriesLabel }}</a>
+        <a class="block px-4 py-2 text-sm text-color-600 hover:bg-color-200" href="{{ tagsUrl }}">{{ tagsLabel }}</a>
+        <a class="block px-4 py-2 text-sm text-color-600 hover:bg-color-200" href="{{ aboutUrl }}">{{ aboutLabel }}</a>
+        {% if friends.size > 0 %}
+        <a class="block px-4 py-2 text-sm text-color-600 hover:bg-color-200" href="{{ friendsUrl }}">{{ friendsLabel }}</a>
+        {% endif %}
+      </div>
+    </div>
+  </nav>
+</header>
+{% endcapture %}
+
+{% endcapture %}{{ output | replace: "color", color }}

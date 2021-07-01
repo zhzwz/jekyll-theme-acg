@@ -1,0 +1,23 @@
+{% capture workspace %}
+
+{% capture color %}{{ page.color | default: site.color | default: "red" }}{% endcapture %}
+{% capture author %}{{ site.author | default: "AUTHOR_NAME" }}{% endcapture %}
+{% capture githubId %}{{ site.acg.github }}{% endcapture %}
+
+{% capture output %}
+<footer class="w-full mt-4 p-2 text-sm text-color-100 ">
+  <p class="text-center">
+    Powered by
+    <a class="text-color-400" href="https://jekyllrb.com" target="_block">Jekyll</a>
+    ·
+    <a class="text-color-400" href="https://github.com/coderzhaoziwei/jekyll-theme-acg" target="_block">Jekyll Theme ACG</a>
+  </p>
+  <p class="text-center">
+    Copyright {{ "now" | date: "%Y" }}
+    <a class="text-color-400" href="https://github.com/{{ githubId }}" target="_block">{{ author }}</a>
+    · All rights reserved.
+  </p>
+</footer>
+{% endcapture %}
+
+{% endcapture %}{{ output | replace: "color", color }}

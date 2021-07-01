@@ -1,0 +1,57 @@
+{% capture workspace %}
+
+{% capture color %}{{ page.color | default: site.color | default: "red" }}{% endcapture %}
+{% capture background %}{{ page.background | default: site.background | relative_url }}{% endcapture %}
+
+{% capture output %}
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+{% seo %}<!-- Begin Jekyll Feed -->
+{% feed_meta %}
+<!-- End Jekyll Feed -->
+
+<!-- Tailwind -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2/dist/tailwind.min.css">
+<!-- Primer Markdown -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/primer-markdown@4.0.0/build/build.css">
+<!-- HighlightJS -->
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.1/build/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<!-- HighlightJS Theme VS2015 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.0.1/styles/vs2015.css">
+<!-- MathJax @see https://www.mathjax.org -->
+{% if page.math == true %}
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [["$", "$"], ["\\(", "\\)"]]
+  },
+};
+</script>
+<script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+{% endif %}
+<!-- Theme -->
+<link rel="stylesheet" href="{{ "assets/css/style.css" | relative_url }}">
+<style id="ThemeColor">
+:root {
+  --theme-50: var(--color-50);
+  --theme-100: var(--color-100);
+  --theme-200: var(--color-200);
+  --theme-300: var(--color-300);
+  --theme-400: var(--color-400);
+  --theme-500: var(--color-500);
+  --theme-600: var(--color-600);
+  --theme-700: var(--color-700);
+  --theme-800: var(--color-800);
+  --theme-900: var(--color-900);
+}
+</style>
+<style id="ThemeBackgroundImage">.bg-image { background-image: url("{{ background }}"); }</style>
+
+{% include custom-head.html %}
+</head>
+{% endcapture %}
+
+{% endcapture %}{{ output | replace: "color", color }}
