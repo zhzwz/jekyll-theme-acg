@@ -1,0 +1,38 @@
+
+{% capture class %}flex-shrink-0 text-{{ color }}-400{% endcapture %}
+
+
+<div class="flex justify-between items-center">
+  <!-- Prev -->
+  <a
+    href="{{ paginator.previous_page_path | relative_url }}"
+    class="flex justify-center items-center m-2 ml-0 w-8 h-8 rounded-full bg-{{ color }}-50 bg-opacity-75
+    hover:bg-{{ color }}-100 hover:bg-opacity-75 hover:text-{{ color }}-400"
+  >{% include svg-prev.html class=class %}</a>
+  <!-- Pages -->
+  <div class="flex flex-wrap items-center justify-center">
+    <!-- paginator.total_pages -->
+    {%- for pageCount in (1..paginator.total_pages) -%}
+    {% assign pagePath = site.paginate_path | replace: ":num", pageCount %}
+    <a class="flex justify-center items-center w-8 h-8 m-px rounded-full text-sm font-mono bg-{{ color }}-50 bg-opacity-75 text-opacity-75 border border-transparent hover:bg-{{ color }}-100 hover:bg-opacity-75 hover:text-{{ color }}-400
+    {% if pageCount == paginator.page %}
+      text-{{ color }}-400 select-none
+    {% else %}
+      text-black
+    {% endif %}"
+
+    {% if pageCount != paginator.page %}
+      {% if pageCount == 1 %}href={{ "/" | relative_url }}{% else %}href="{{ pagePath | relative_url }}"{% endif %}
+    {% endif %}
+
+    ><span class="block">{{ pageCount }}</span></a>
+    {%- endfor -%}
+  </div>
+  <!-- Next -->
+  <a
+    href="{{ paginator.next_page_path | relative_url }}"
+    class="flex justify-center items-center m-2 mr-0 w-8 h-8 rounded-full bg-{{ color }}-50 bg-opacity-75 hover:bg-{{ color }}-100 hover:bg-opacity-75 hover:text-{{ color }}-400"
+  >
+    {% include svg-next.html class=class %}
+  </a>
+</div>

@@ -1,0 +1,25 @@
+{% capture svgClass %}flex-shrink-0 text-{{ color }}-600{% endcapture %}
+
+<div class="w-full mx-auto flex justify-between space-x-4">
+
+<!-- prev -->
+{% if page.next and page.next.id %}
+  <a class="w-1/2 p-4 flex items-center rounded-lg bg-{{ color }}-50 bg-opacity-75" href="{{ page.next.id | relative_url }}">
+    {% include svg-prev.html class=svgClass %}
+    <span class="ml-4 text-black">{{ page.next.title | default: "" }}</span>
+  </a>
+{% else %}
+  <a class="w-1/2 p-4 opacity-0"></a>
+{% endif %}
+
+<!-- next -->
+{% if page.previous and page.previous.id %}
+  <a class="w-1/2 p-4 flex flex-row-reverse items-center rounded-lg bg-{{ color }}-50 bg-opacity-75" href="{{ page.previous.id | relative_url }}">
+    {% include svg-next.html class=svgClass %}
+    <span class="mr-4 text-black">{{ page.previous.title | default: "" }}</span>
+  </a>
+{% else %}
+  <a class="w-1/2 p-4 opacity-0"></a>
+{% endif %}
+
+</div>

@@ -1,7 +1,16 @@
 ---
-layout: default
+layout: compress
 ---
-{% capture color %}{{ page.color | default: site.color | default: "red" }}{% endcapture %}
+{% capture lang %}{{ page.lang | default: site.lang | default: "en-US" }}{% endcapture %}
+
+{% comment %} color {% endcomment %}
+{% capture color %}{{ page.color | default: site.color | downcase }}{% endcapture %}
+{% assign colors = "red, blue, pink, green, yellow, purple, gray, default" | split: ", " %}
+{% for item in colors %}
+  {% if item == color %}{% break %}{% endif %}
+  {% if item == "default" %}{% assign color = "red" %}{% endif %}
+{% endfor %}
+
 {% assign title = page.title %}
 {% assign description = page.description %}
 {% assign content = content | strip %}
@@ -10,20 +19,20 @@ layout: default
   {% capture title %}{{ site.title }}{% endcapture %}
   {% capture description %}{{ site.description }}{% endcapture %}
 {% elsif page.permalink == "/categories.html" %}
-  {% capture title %}{{ site.categoriesLabel }}{% endcapture %}
-  {% capture description %}{{ site.categoriesDescription }}{% endcapture %}
+  {% capture title %}{{ site.acg.categories.label }}{% endcapture %}
+  {% capture description %}{{ site.acg.categories.description }}{% endcapture %}
 {% elsif page.permalink == "/tags.html" %}
-  {% capture title %}{{ site.tagsLabel }}{% endcapture %}
-  {% capture description %}{{ site.tagsDescription }}{% endcapture %}
+  {% capture title %}{{ site.acg.tags.label }}{% endcapture %}
+  {% capture description %}{{ site.acg.tags.description }}{% endcapture %}
 {% elsif page.permalink == "/about.html" %}
-  {% capture title %}{{ site.aboutLabel }}{% endcapture %}
-  {% capture description %}{{ site.aboutDescription }}{% endcapture %}
+  {% capture title %}{{ site.acg.about.label }}{% endcapture %}
+  {% capture description %}{{ site.acg.about.description }}{% endcapture %}
 {% elsif page.permalink == "/friends.html" %}
-  {% capture title %}{{ site.friendsLabel }}{% endcapture %}
-  {% capture description %}{{ site.friendsDescription }}{% endcapture %}
+  {% capture title %}{{ site.acg.friends.label }}{% endcapture %}
+  {% capture description %}{{ site.acg.friends.description }}{% endcapture %}
 {% elsif page.permalink == "/404.html" %}
-  {% capture title %}{{ site.errorLabel }}{% endcapture %}
-  {% capture description %}{{ site.errorDescription }}{% endcapture %}
+  {% capture title %}{{ site.acg.error.label }}{% endcapture %}
+  {% capture description %}{{ site.acg.error.description }}{% endcapture %}
 {% endif %}
 
 {% assign list = "" | split: "" %}
@@ -34,6 +43,11 @@ layout: default
 {% endif %}
 {% assign list = list | sort %}
 
+<!DOCTYPE html>
+<html lang="{{ lang }}" class="min-h-screen bg-image bg-cover bg-center bg-fixed">
+{% include head.html %}
+<body class="flex flex-col items-center bg-black bg-opacity-50">
+{% include header.html %}
 <div class="w-acg min-h-screen py-16">
   <div class="w-full flex flex-col justify-center items-center content-center text-{{ color }}-50
     {% if page.type == "home" %}h-screen select-none pb-16{% else %}py-32{% endif %}"
@@ -41,24 +55,29 @@ layout: default
     <!-- title -->
     <div class="text-center text-4xl font-serif py-8">
       {% if page.type == "category" %}
-        {% include item-category.html name=title title=true %}
+        {% include chip.html type="category" text=title width=8 larger=true %}
       {% elsif page.type == "tag" %}
-        {% include item-tag.html name=title title=true %}
+        {% include chip.html type="tag" text=title width=8 larger=true %}
       {% else %}
         {{ title }}
       {% endif %}
     </div>
     <!-- description -->
     <div class="text-center text-base font-sans py-8">{{ description }}</div>
-    <!-- categories/tags: list -->
+
+    <!-- categories.html & tags.html -->
     <div class="flex flex-wrap justify-center items-center content-center select-none">
     {% if page.permalink == "/categories.html" %}
-      {% for name in list %}{% assign count = site.categories[name].size %}
-      <div class="m-1 px-2 bg-{{ color }}-50 bg-opacity-75 rounded">{% include item-category.html name=name count=count %}</div>
+      {% for category in list %}{% assign count = site.categories[category].size %}
+        <div class="m-1 px-2 bg-{{ color }}-50 bg-opacity-75 rounded">
+          {% include chip.html type="category" text=category count=count width=4 %}
+        </div>
       {% endfor %}
     {% elsif page.permalink == "/tags.html" %}
-      {% for name in list %}{% assign count = site.tags[name].size %}
-      <div class="m-1 px-2 bg-{{ color }}-50 bg-opacity-75 rounded">{% include item-tag.html name=name count=count %}</div>
+      {% for tag in list %}{% assign count = site.tags[tag].size %}
+        <div class="m-1 px-2 bg-{{ color }}-50 bg-opacity-75 rounded">
+          {% include chip.html type="tag" text=tag count=count width=4 %}
+        </div>
       {% endfor %}
     {% endif %}
     </div>
@@ -92,9 +111,12 @@ layout: default
   {% endif %}
   <!-- posts -->
   {% if page.type == "home" %}
-    <div class="w-full p-4 flex flex-col space-y-4">{% include posts.html posts=site.posts%}</div>
+    <div class="w-full p-4 flex flex-col space-y-4">{% include posts.html posts=site.posts %}</div>
     <div class="w-full p-4">{% include paginator.html %}</div>
   {% elsif page.posts %}
     <div class="w-full p-4 flex flex-col space-y-4">{% include posts.html posts=page.posts %}</div>
   {% endif %}
 </div>
+{% include footer.html %}
+</body>
+</html>
