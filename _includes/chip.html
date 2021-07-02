@@ -1,0 +1,36 @@
+{% comment %} size {% endcomment %}
+{% assign width = include.width | default: include.height | default: 6 %}
+{% assign height = include.height | default: include.width | default: 6 %}
+
+{% comment %} text {% endcomment %}
+{% assign text = include.text %}
+{% if include.type == "date" %}
+  {% assign text = text | date: "%Y-%m-%d" %}
+{% endif %}
+
+{% comment %} href {% endcomment %}
+{% assign href = nil %}
+{% if include.type == "category" %}
+  {% assign name = include.text | default: "CATEGORY" | slugify %}
+  {% assign href = "/categories/" | append: name %}
+{% elsif include.type == "tag" %}
+  {% assign name = include.text | default: "TAG" | slugify %}
+  {% assign href = "/tags/" | append: name %}
+{% endif %}
+
+<a
+  class="mx-px text-opacity-75 flex items-center select-none
+  {% if include.larger %}text-4xl text-{{ color }}-100{% else %}text-sm text-{{ color }}-500{% endif %}"
+  {% if href %}href="{{ href | relative_url }}"{% endif %}
+>
+  <!-- svg -->
+  {% include svg-{{ include.type }}.html width=width height=height %}
+  <!-- text -->
+  {% if include.text %}
+    <span class="inline-block p-1 whitespace-nowrap">{{ text }}</span>
+  {% endif %}
+  <!-- count -->
+  {% if include.count and include.count > 0 %}
+    <span class="inline-block p-1 whitespace-nowrap">{{ include.count }}</span>
+  {% endif %}
+</a>
