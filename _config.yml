@@ -3,10 +3,8 @@ baseurl:
 title: Jekyll Theme ACG
 description: An awesome theme for Jekyll.
 author: Coder Zhao
-lang: en-US
-# Theme Name
+lang:
 theme: jekyll-theme-acg
-
 
 acg:
   # Theme Color
@@ -17,21 +15,20 @@ acg:
   # Default: https://cdn.jsdelivr.net/gh/coderzhaoziwei/jekyll-theme-acg/assets/images/pixiv86925095.png
   background:
   categories:
-    label: Categories
+    label:
     description:
   tags:
-    label: Tags
+    label:
     description:
   about:
-    label: About
+    label:
     description:
   friends:
-    label: Friends
+    label:
     description:
   error:
-    label: <span class="text-6xl">404</span>
-    description: "Page not found."
-
+    label:
+    description:
 
 exclude: [
   "LICENSE",
@@ -42,7 +39,6 @@ exclude: [
   "*.gem",
   "*.gemspec",
 ]
-
 
 defaults:
 - scope:                    # all
@@ -62,13 +58,11 @@ defaults:
     permalink: /posts/:title
     type: post
 
-
 paginate: 10
 show_excerpt: true
 paginate_path: /page:num
 sass:
   style: compressed
-
 
 # ************************************************ #
 #                                                  #

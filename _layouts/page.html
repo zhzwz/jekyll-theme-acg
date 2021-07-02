@@ -22,20 +22,20 @@ layout: compress
   {% capture title %}{{ site.title }}{% endcapture %}
   {% capture description %}{{ site.description }}{% endcapture %}
 {% elsif page.permalink == "/categories.html" %}
-  {% capture title %}{{ site.acg.categories.label }}{% endcapture %}
+  {% capture title %}{{ site.acg.categories.label | default: "Categories" }}{% endcapture %}
   {% capture description %}{{ site.acg.categories.description }}{% endcapture %}
 {% elsif page.permalink == "/tags.html" %}
-  {% capture title %}{{ site.acg.tags.label }}{% endcapture %}
+  {% capture title %}{{ site.acg.tags.label | default: "Tags" }}{% endcapture %}
   {% capture description %}{{ site.acg.tags.description }}{% endcapture %}
 {% elsif page.permalink == "/about.html" %}
-  {% capture title %}{{ site.acg.about.label }}{% endcapture %}
+  {% capture title %}{{ site.acg.about.label | default: "About" }}{% endcapture %}
   {% capture description %}{{ site.acg.about.description }}{% endcapture %}
 {% elsif page.permalink == "/friends.html" %}
-  {% capture title %}{{ site.acg.friends.label }}{% endcapture %}
+  {% capture title %}{{ site.acg.friends.label | default: "Friends" }}{% endcapture %}
   {% capture description %}{{ site.acg.friends.description }}{% endcapture %}
 {% elsif page.permalink == "/404.html" %}
-  {% capture title %}{{ site.acg.error.label }}{% endcapture %}
-  {% capture description %}{{ site.acg.error.description }}{% endcapture %}
+  {% capture title %}{{ site.acg.error.label | default: '<span class="text-6xl">404</span>' }}{% endcapture %}
+  {% capture description %}{{ site.acg.error.description | default: "Page not found." }}{% endcapture %}
 {% endif %}
 
 {% assign list = "" | split: "" %}
