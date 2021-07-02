@@ -1,36 +1,37 @@
-lang: zh-CN
+url:
+baseurl:
 title: Jekyll Theme ACG
 description: An awesome theme for Jekyll.
 author: Coder Zhao
-email: coderzhaoziwei@outlook.com
-
+lang: en-US
 # Theme Name
 theme: jekyll-theme-acg
+
+
 acg:
-  categories: Categories
-  tags: Tags
-  about: About
-  error: Page Not Found.
-  github: coderzhaoziwei
+  # Theme Color
+  # Default: red
+  # Options: red, blue, pink, green, yellow, purple, gray
+  color:
+  # Theme Background Image Path
+  # Default: https://cdn.jsdelivr.net/gh/coderzhaoziwei/jekyll-theme-acg/assets/images/pixiv86925095.png
+  background:
+  categories:
+    label: Categories
+    description:
+  tags:
+    label: Tags
+    description:
+  about:
+    label: About
+    description:
+  friends:
+    label: Friends
+    description:
+  error:
+    label: <span class="text-6xl">404</span>
+    description: "Page not found."
 
-# Theme Color
-# Default: red
-# Options: red, blue, pink, green, yellow, purple
-color: red
-# Theme Background Image Path
-# Default: /assets/images/bg.png
-# Author: saino
-# Origin: https://www.pixiv.net/artworks/86925095
-background: https://cdn.jsdelivr.net/gh/coderzhaoziwei/jekyll-theme-acg/assets/images/bg.png
-
-url:
-baseurl:
-paginate: 10
-
-show_excerpt: true
-paginate_path: /page:num
-
-# ========== ========== ========== ========== ==========
 
 exclude: [
   "LICENSE",
@@ -42,29 +43,40 @@ exclude: [
   "*.gemspec",
 ]
 
-collections_dir: ""
-collections:
-  posts:
-    output: true
-    permalink: /:collection/:title
 
 defaults:
-- scope:
-    path: "" # all files in the project
+- scope:                    # all
+    path: ""
   values:
     layout: page
 - scope:
+    path: "index.html"
+  values:
+    layout: page
+    type: home
+- scope:                    # _posts
     path: ""
     type: posts
   values:
-    layout: post
+    layout: page
+    permalink: /posts/:title
+    type: post
 
+
+paginate: 10
+show_excerpt: true
+paginate_path: /page:num
 sass:
   style: compressed
 
 
-# Jekyll Archives
-# @see https://github.com/jekyll/jekyll-archives
+# ************************************************ #
+#                                                  #
+#  Jekyll Archives                                 #
+#                                                  #
+#  @see https://github.com/jekyll/jekyll-archives  #
+#                                                  #
+# ************************************************ #
 jekyll-archives:
   enabled: [categories, tags]
   layouts:
@@ -75,36 +87,21 @@ jekyll-archives:
     category: /categories/:name/
 
 
-# Jekyll Spaceship
-# @see https://github.com/jeffreytse/jekyll-spaceship#usage
+# ***************************************************** #
+#                                                       #
+#  Jekyll Spaceship                                     #
+#                                                       #
+#  @see https://github.com/jeffreytse/jekyll-spaceship  #
+#                                                       #
+# ***************************************************** #
 jekyll-spaceship:
   processors:
     - table-processor
-    - mathjax-processor
     - plantuml-processor
     - mermaid-processor
-    - polyfill-processor
     - media-processor
     - emoji-processor
     - element-processor
-  mathjax-processor:
-    src:
-      # - https://polyfill.io/v3/polyfill.min.js?features=es6
-      - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-    config:
-      tex:
-        inlineMath:
-          - ["$", "$"]
-          # - ["\(", "\)"]
-        displayMath:
-          - ["$$", "$$"]
-          # - ["\[", "\]"]
-      svg:
-        fontCache: "global"
-    optimize: # optimization on building stage to check and add mathjax scripts
-      enabled: true # value `false` for adding to all pages
-      include: []   # include patterns for math expressions checking (regexp)
-      exclude: []   # exclude patterns for math expressions checking (regexp)
   plantuml-processor:
     mode: default  # mode value 'pre-fetch' for fetching image at building stage
     css:

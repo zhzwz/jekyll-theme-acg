@@ -1,7 +1,7 @@
 ---
 title: Configure color pink
 description: Show the rendering effect of theme color pink.
-tags: config color
+tags: ["config", "color", "tag with whitespace"]
 categories: guide
 color: pink
 ---

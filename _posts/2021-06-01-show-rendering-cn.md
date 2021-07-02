@@ -4,6 +4,7 @@ description: 详细展示 Jekyll Theme ACG 主题对于 Markdown 语法的渲染
 categories: guide
 tags: markdown theme chinese
 color: red
+math: true
 ---
 
 -----

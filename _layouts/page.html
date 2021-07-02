@@ -11,6 +11,9 @@ layout: compress
   {% if item == "default" %}{% assign color = "red" %}{% endif %}
 {% endfor %}
 
+{% comment %} background {% endcomment %}
+{% capture background %}{{ page.background | default: site.acg.background | default: "https://cdn.jsdelivr.net/gh/coderzhaoziwei/jekyll-theme-acg/assets/images/pixiv86925095.png" | relative_url }}{% endcapture %}
+
 {% assign title = page.title %}
 {% assign description = page.description %}
 {% assign content = content | strip %}

@@ -5,7 +5,7 @@
 .markdown-body h4,
 .markdown-body h5,
 .markdown-body h6 {
-  color: var(--theme-900);
+  color: rgba(0, 0, 0, 0.75);
 }
 
 .markdown-body hr {
@@ -13,9 +13,8 @@
 }
 
 .markdown-body blockquote {
-  color: var(--theme-700);
-  border-left-color: var(--theme-700);
-  opacity: 0.75;
+  color: var(--theme-800);
+  border-left-color: var(--theme-800);
 }
 
 .markdown-body code:not(.hljs) {
