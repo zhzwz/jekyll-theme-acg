@@ -1,10 +1,10 @@
 Gem::Specification.new do |spec|
   spec.name     = "jekyll-theme-acg"
-  spec.version  = "1.0.13"
+  spec.version  = "1.0.14"
   spec.authors  = ["Coder Zhao"]
   spec.email    = "coderzhaoziwei@outlook.com"
-  spec.summary  = "Jekyll Theme ACG For Jekyll"
-  spec.description = "This a theme for Jekyll, which still under development."
+  spec.summary  = "Jekyll Theme ACG"
+  spec.description = "This a theme for Jekyll, You can visit https://coderzhaoziwei.github.io to preview the effect."
   spec.homepage = "https://github.com/coderzhaoziwei/jekyll-theme-acg"
   spec.license  = "MIT"
 
@@ -39,4 +39,5 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "jekyll-spaceship"
 
   spec.add_development_dependency "bundler"
+
 end

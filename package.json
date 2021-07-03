@@ -1,5 +1,7 @@
 {
-  "version": "1.0.13",
+  "name": "jekyll-theme-acg",
+  "version": "1.0.14",
+  "description": "Jekyll Theme ACG",
   "scripts": {
     "bundle:serve": "bundle update && bundle exec jekyll serve -o",
     "bundle:build": "bundle exec jekyll build",

@@ -12,15 +12,24 @@
 
 ## Documentation
 
-- To check out [the minimal demo](https://github.com/coderzhaoziwei/jekyll-theme-acg-minimal).
+- [English Guide](https://coderzhaoziwei.github.io/posts/acg-guide-en)
+- [简体中文指南](https://coderzhaoziwei.github.io/posts/acg-guide-cn)
+
+My English is poor. In the event of any discrepancy, the Simplified Chinese guide shall prevail.
+
+If you have any problems, you can submit issues or send me email.
 
 
 ## Thanks
 
-- Markdown Style: https://github.com/primer/css/tree/main/src/markdown
-- Highlight JS: https://highlightjs.org
+- [Tailwind](https://tailwindcss.com)
+- [Markdown Style](https://github.com/primer/css/tree/main/src/markdown)
+- [Highlight JS](https://highlightjs.org)
+- [MathJax](https://www.mathjax.org)
+- [Jekyll Archives](https://github.com/jekyll/jekyll-archives)
+- [Jekyll Spaceship](https://github.com/jeffreytse/jekyll-spaceship)
 
 
 ## License
 
-MIT
+MIT © Coder Zhao
