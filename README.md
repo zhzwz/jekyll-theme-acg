@@ -12,10 +12,12 @@
 
 ## Documentation
 
-- [Jekyll Theme ACG Guide](https://coderzhaoziwei.github.io/jekyll-theme-acg-minimal/posts/acg-guide-en)
-- [Jekyll Theme ACG 主题使用指南](https://coderzhaoziwei.github.io/jekyll-theme-acg-minimal/posts/acg-guide-cn)
-- [Rendering effect of Markdown syntax](https://coderzhaoziwei.github.io/jekyll-theme-acg-minimal/posts/acg-markdown-en)
-- [Markdown 语法的渲染效果](https://coderzhaoziwei.github.io/jekyll-theme-acg-minimal/posts/acg-markdown-cn)
+- 简体中文
+  - [Jekyll Theme ACG 主题使用指南](https://coderzhaoziwei.github.io/jekyll-theme-acg-minimal/posts/acg-guide-cn)
+  - [Markdown 语法的渲染效果](https://coderzhaoziwei.github.io/jekyll-theme-acg-minimal/posts/acg-markdown-cn)
+- English
+  - [Jekyll Theme ACG Guide](https://coderzhaoziwei.github.io/jekyll-theme-acg-minimal/posts/acg-guide-en)
+  - [Rendering effect of Markdown syntax](https://coderzhaoziwei.github.io/jekyll-theme-acg-minimal/posts/acg-markdown-en)
 
 My English is poor. In the event of any discrepancy, the Simplified Chinese guide shall prevail.
 
