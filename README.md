@@ -1,8 +1,11 @@
 <h1 align="center">Jekyll Theme ACG</h1>
+
 <div align="center">
+
 [![](https://img.shields.io/gem/v/jekyll-theme-acg?label=jekyll-theme-acg)](https://rubygems.org/gems/jekyll-theme-acg)
 [![](https://img.shields.io/gem/dt/jekyll-theme-acg)](https://rubygems.org/gems/jekyll-theme-acg)
 [![](https://img.shields.io/github/stars/coderzhaoziwei/jekyll-theme-acg?style=social)](https://github.com/coderzhaoziwei/jekyll-theme-acg)
+
 </div>
 
 ## Showcase
