@@ -1,6 +1,6 @@
 # Jekyll Theme ACG
 
-[![](https://img.shields.io/gem/v/jekyll-theme-acg)](https://rubygems.org/gems/jekyll-theme-acg)
+[![](https://img.shields.io/gem/v/jekyll-theme-acg?label=jekyll-theme-acg)](https://rubygems.org/gems/jekyll-theme-acg)
 [![](https://img.shields.io/gem/dt/jekyll-theme-acg)](https://rubygems.org/gems/jekyll-theme-acg)
 [![](https://img.shields.io/github/stars/coderzhaoziwei/jekyll-theme-acg?style=social)](https://github.com/coderzhaoziwei/jekyll-theme-acg)
 
@@ -12,8 +12,10 @@
 
 ## Documentation
 
-- [English Guide](https://coderzhaoziwei.github.io/posts/acg-guide-en)
-- [简体中文指南](https://coderzhaoziwei.github.io/posts/acg-guide-cn)
+- [Jekyll Theme ACG Guide](https://coderzhaoziwei.github.io/jekyll-theme-acg-minimal/posts/acg-guide-en)
+- [Jekyll Theme ACG 主题使用指南](https://coderzhaoziwei.github.io/jekyll-theme-acg-minimal/posts/acg-guide-cn)
+- [Rendering effect of Markdown syntax](https://coderzhaoziwei.github.io/jekyll-theme-acg-minimal/posts/acg-markdown-en)
+- [Markdown 语法的渲染效果](https://coderzhaoziwei.github.io/jekyll-theme-acg-minimal/posts/acg-markdown-cn)
 
 My English is poor. In the event of any discrepancy, the Simplified Chinese guide shall prevail.
 
