@@ -14,6 +14,7 @@
 
 ![](/screenshot.png)
 
+- [Minimal](https://coderzhaoziwei.github.io/jekyll-theme-acg-minimal)
 
 ## Documentation
 

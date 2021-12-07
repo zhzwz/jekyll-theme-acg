@@ -38,6 +38,7 @@ exclude: [
   "yarn.lock",
   "*.gem",
   "*.gemspec",
+  "screenshot.png",
 ]
 
 defaults:
